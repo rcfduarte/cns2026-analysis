@@ -13,13 +13,25 @@ def _text(el) -> str:
     return re.sub(r"\s+", " ", "".join(el.itertext())).strip() if el is not None else ""
 
 
+# A CNS supplement abstract DOI ends in -S<suppl>-<CODE><num>, e.g. -16-S1-P173, -S1-F3, -S1-A1.
+_SUPP_RE = re.compile(r"-S\d+-([A-Z]{1,2})(\d+)$")
+# Prefix → record type. Keynotes K; orals O/F(featured)/I(invited)/T(tutorial)/W(workshop);
+# posters P; front matter A.
+_PREFIX_KIND = {"K": "keynote", "O": "oral", "F": "oral", "I": "oral", "T": "oral", "W": "oral"}
+
+
+def is_supplement_abstract(doi: str | None) -> bool:
+    return bool(_SUPP_RE.search(doi or ""))
+
+
 def _classify(doi: str | None) -> tuple[str, str]:
-    """Return (type, code) from a DOI suffix like ...-16-S1-P173 / -O5 / -A1."""
-    m = re.search(r"-([OPA])(\d+)$", doi or "")
+    """Return (type, code) from a supplement DOI suffix; ('poster','P0') if unrecognized."""
+    m = _SUPP_RE.search(doi or "")
     if not m:
         return "poster", "P0"
-    kind = {"O": "oral", "P": "poster", "A": "frontmatter"}[m.group(1)]
-    return kind, f"{m.group(1)}{m.group(2)}"
+    prefix, num = m.group(1), m.group(2)
+    kind = "frontmatter" if prefix == "A" else _PREFIX_KIND.get(prefix[0], "poster")
+    return kind, f"{prefix}{num}"
 
 
 def _authors(scope) -> list[Author]:
@@ -92,6 +104,9 @@ def parse_era_a_articleset(xml: bytes, year: int, meeting_no: int) -> list[Abstr
         arts = [root]
     out = []
     for art in arts:
+        doi = _text(art.find('.//article-id[@pub-id-type="doi"]')) or None
+        if not is_supplement_abstract(doi):
+            continue  # regular (non-CNS) journal article — exclude
         try:
             out.append(_parse_era_a_element(art, year, meeting_no))
         except Exception:
