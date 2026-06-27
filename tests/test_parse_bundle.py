@@ -1,8 +1,9 @@
 from pathlib import Path
 
-from cns_scientometrics.parse_jats import split_flat_paragraphs
+from cns_scientometrics.parse_jats import split_bundle, split_flat_paragraphs
 
 FIXTURE = Path(__file__).parent / "fixtures" / "era_c_bundle_trimmed.xml"
+ERA_B = Path(__file__).parent / "fixtures" / "era_b_bundle_trimmed.xml"
 
 
 def test_split_flat_paragraphs_yields_multiple_records():
@@ -32,3 +33,17 @@ def test_split_flat_paragraphs_classifies_and_extracts():
     assert any("Singer" in a.raw_name for a in k1.authors)
     assert k1.affiliations  # at least one affiliation captured
     assert "cortex" in k1.body["full"].lower()
+
+
+def test_split_bundle_era_b_extracts_authors_and_affiliations():
+    recs = split_bundle(
+        ERA_B.read_bytes(), year=2017, meeting_no=26, era="B", license="cc-by", source_url="u"
+    )
+    assert len(recs) == 3
+    p1 = recs[0]
+    assert p1.abstract_id == "2017-P1"
+    assert p1.type == "poster"
+    assert any("Rubchinsky" in a.raw_name for a in p1.authors)
+    assert p1.affiliations  # nested-sec affiliation lines parsed
+    assert len(p1.body["full"]) > 500
+    assert all(r.era == "B" and r.license == "cc-by" for r in recs)

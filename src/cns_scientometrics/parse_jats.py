@@ -114,27 +114,103 @@ def parse_era_a_articleset(xml: bytes, year: int, meeting_no: int) -> list[Abstr
     return out
 
 
-_HEADER_RE = re.compile(r"^([A-Z]{1,2})(\d+)\s+\S")
-_KIND_BY_PREFIX = {"K": "keynote", "O": "oral", "F": "oral", "T": "oral", "W": "oral", "P": "poster"}
+# Abstract header line: "<CODE><num> <title>", e.g. "P1 ...", "K3 ...", "F12 ...".
+_HEADER_RE = re.compile(r"^([A-Z]{1,2})(\d+)\b\s*(.*)")
+_KIND_BY_PREFIX = {
+    "K": "keynote",
+    "O": "oral",
+    "F": "oral",
+    "I": "oral",
+    "T": "oral",
+    "W": "oral",
+    "P": "poster",
+}
 
 
-def _ptext(p) -> str:
-    return _text(p)
+def _kind_for(code: str) -> str:
+    return _KIND_BY_PREFIX.get(code[0], "poster")
 
 
-def _is_affiliation(t: str) -> bool:
-    return bool(re.match(r"^\d+\s", t))
+def _starts_affiliation(t: str) -> bool:
+    return bool(re.match(r"^\d", t.strip()))
 
 
-def _parse_author_line(t: str) -> list[Author]:
-    # e.g. "Andreas Baumbach 1 , Agnes Korcsak-Gorzo 2 , Michael G. Müller 3"
+def _clean_authors(text: str) -> list[Author]:
+    """Parse an author byline, tolerating spaced (Era C) and glued (Era B) sup markers."""
+    text = re.sub(r"\d+", " ", text)  # names carry no digits; drop superscript markers
     out = []
-    for chunk in re.split(r"\s*,\s*", t):
-        name = re.sub(r"[\d\s,]+$", "", chunk).strip()  # drop trailing sup markers
-        name = re.sub(r"\s+\d+(\s*,\s*\d+)*$", "", name).strip()
-        if name and not _is_affiliation(name) and not name.lower().startswith("email"):
+    for chunk in re.split(r"[,;]", text):
+        name = re.sub(r"\s+", " ", chunk).strip(" .,&")
+        if len(name) >= 3 and re.search(r"[A-Za-z]", name) and not name.lower().startswith("email"):
             out.append(Author(raw_name=name))
     return out
+
+
+def _split_affiliations(line: str) -> list[str]:
+    """Split a (possibly glued) affiliation line like '1Inst A, USA2Inst B, UK' into items."""
+    out = []
+    for part in re.split(r"\d+(?=[A-Z])", line):
+        p = re.sub(r"^\d+\s*", "", part).strip(" .,;")
+        if len(p) > 3:
+            out.append(p)
+    return out
+
+
+def _assemble(
+    code: str,
+    title: str,
+    lines: list[str],
+    year: int,
+    meeting_no: int,
+    era: str,
+    license: str,
+    source_url: str,
+) -> AbstractRecord:
+    """Build a record from an abstract's title and its ordered following text lines."""
+    authors: list[Author] = []
+    affs: list[str] = []
+    body_paras: list[str] = []
+    refs: list[str] = []
+    in_refs = False
+    seen_author = False
+    for t in lines:
+        low = t.lower()
+        if low.startswith("references"):
+            in_refs = True
+            continue
+        if in_refs:
+            refs.append(t)
+            continue
+        if low.startswith("email:"):
+            continue
+        if not seen_author and not _starts_affiliation(t):
+            authors = _clean_authors(t)
+            seen_author = True
+            continue
+        if _starts_affiliation(t):
+            affs += _split_affiliations(t)
+            continue
+        body_paras.append(t)
+    full = " ".join(body_paras).strip() or title
+    return AbstractRecord(
+        abstract_id=f"{year}-{code}",
+        year=year,
+        meeting_no=meeting_no,
+        type=_kind_for(code),
+        title=title,
+        authors=authors,
+        affiliations=affs,
+        institutions=[],
+        countries=[],
+        body={"background": None, "methods": None, "results": None, "full": full},
+        references=refs,
+        figure_caption=None,
+        doi=None,
+        pmcid=None,
+        era=era,
+        license=license,
+        source_url=source_url,
+    )
 
 
 def split_flat_paragraphs(
@@ -148,88 +224,54 @@ def split_flat_paragraphs(
     """Segment a flat <body><p>... stream (JCN / Era C) into per-abstract records.
 
     A new abstract starts at every header paragraph matching '<CODE><num> <title>'
-    (e.g. K1, F1, O5, P173). Following paragraphs are classified as author line,
-    affiliation, Email, References, or body until the next header.
+    (e.g. K1, F1, O5, P173); following paragraphs are author/affiliation/body.
     """
-    root = etree.fromstring(xml) if isinstance(xml, bytes) else etree.fromstring(xml.encode())
+    root = _root(xml)
     art = root.find(".//article")
     if art is None:
         art = root
     body = art.find(".//body")
     if body is None:
         return []
-    paras = [(_ptext(p)) for p in body.findall("./p")]
 
-    groups: list[tuple[str, str, list[str]]] = []  # (code_letter+num, title, body_paras)
+    groups: list[tuple[str, str, list[str]]] = []
     cur: list[str] | None = None
-    for t in paras:
+    for p in body.findall("./p"):
+        t = _text(p)
         m = _HEADER_RE.match(t)
-        if m:
-            code = f"{m.group(1)}{m.group(2)}"
-            title = t[m.end() - 1 :].strip()
-            groups.append((code, title, []))
+        if m and m.group(3):
+            groups.append((f"{m.group(1)}{m.group(2)}", m.group(3).strip(), []))
             cur = groups[-1][2]
         elif cur is not None:
             cur.append(t)
 
-    out = []
-    for code, title, rest in groups:
-        prefix = re.match(r"^[A-Z]{1,2}", code).group(0)
-        kind = _KIND_BY_PREFIX.get(prefix[0], "poster")
-        authors: list[Author] = []
-        affs: list[str] = []
-        body_paras: list[str] = []
-        refs: list[str] = []
-        in_refs = False
-        seen_author = False
-        for t in rest:
-            low = t.lower()
-            if low.startswith("references"):
-                in_refs = True
-                continue
-            if in_refs:
-                refs.append(t)
-                continue
-            if low.startswith("email:"):
-                continue
-            if _is_affiliation(t):
-                affs.append(t)
-                continue
-            if not seen_author:
-                authors = _parse_author_line(t)
-                seen_author = True
-                continue
-            body_paras.append(t)
-        full = " ".join(body_paras).strip() or title
-        out.append(
-            AbstractRecord(
-                abstract_id=f"{year}-{code}",
-                year=year,
-                meeting_no=meeting_no,
-                type=kind,
-                title=title,
-                authors=authors,
-                affiliations=affs,
-                institutions=[],
-                countries=[],
-                body={"background": None, "methods": None, "results": None, "full": full},
-                references=refs,
-                figure_caption=None,
-                doi=None,
-                pmcid=None,
-                era=era,
-                license=license,
-                source_url=source_url,
-            )
-        )
-    return out
+    return [
+        _assemble(code, title, rest, year, meeting_no, era, license, source_url)
+        for code, title, rest in groups
+    ]
 
 
 def _abstract_sections(art):
     body = art.find(".//body")
     if body is None:
         return []
-    return [s for s in body.findall("./sec") if s.find("./title") is not None and s.findall(".//p")]
+    return [s for s in body.findall("./sec") if s.find("./title") is not None]
+
+
+def _section_lines(sec) -> list[str]:
+    """Ordered text lines under an abstract <sec>, excluding its own title.
+
+    Era B stores the byline and affiliations as nested <sec> titles; body as <p>.
+    """
+    own_title = sec.find("./title")
+    lines = []
+    for el in sec.iter("title", "p"):
+        if el is own_title:
+            continue
+        t = _text(el)
+        if t:
+            lines.append(t)
+    return lines
 
 
 def split_bundle(
@@ -240,39 +282,20 @@ def split_bundle(
     license: str,
     source_url: str,
 ) -> list[AbstractRecord]:
-    root = etree.fromstring(xml) if isinstance(xml, bytes) else etree.fromstring(xml.encode())
+    """Split a <sec>-structured bundle (BMC / Era B): one top-level <sec> per abstract."""
+    root = _root(xml)
     art = root.find(".//article")
     if art is None:
         art = root
     out = []
     for i, sec in enumerate(_abstract_sections(art), start=1):
-        title = _text(sec.find("./title"))
-        m = re.search(r"\b([OP])\s?-?(\d+)\b", title)
-        if m:
-            kind = {"O": "oral", "P": "poster"}[m.group(1)]
-            code = f"{m.group(1)}{m.group(2)}"
+        title_text = _text(sec.find("./title"))
+        m = _HEADER_RE.match(title_text)
+        if m and m.group(3):
+            code, title = f"{m.group(1)}{m.group(2)}", m.group(3).strip()
         else:
-            kind, code = "poster", f"B{i:04d}"
-        affs = [_text(a) for a in sec.findall(".//aff") if _text(a)]
+            code, title = f"B{i:04d}", title_text
         out.append(
-            AbstractRecord(
-                abstract_id=f"{year}-{code}",
-                year=year,
-                meeting_no=meeting_no,
-                type=kind,
-                title=title,
-                authors=_authors(sec),
-                affiliations=affs,
-                institutions=[],
-                countries=[],
-                body={"background": None, "methods": None, "results": None, "full": _text(sec)},
-                references=[],
-                figure_caption=None,
-                doi=None,
-                pmcid=None,
-                era=era,
-                license=license,
-                source_url=source_url,
-            )
+            _assemble(code, title, _section_lines(sec), year, meeting_no, era, license, source_url)
         )
     return out
