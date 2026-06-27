@@ -46,3 +46,9 @@ secrets/
 # OS
 .DS_Store
 Thumbs.db
+
+# Project data caches and corpus outputs
+data/raw/
+data/cache/
+data/corpus/
+data/corpus_*/
