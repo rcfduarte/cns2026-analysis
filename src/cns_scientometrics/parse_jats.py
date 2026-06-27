@@ -33,11 +33,7 @@ def _authors(scope) -> list[Author]:
     return out
 
 
-def parse_era_a_article(xml: bytes, year: int, meeting_no: int) -> AbstractRecord:
-    root = etree.fromstring(xml) if isinstance(xml, bytes) else etree.fromstring(xml.encode())
-    art = root.find(".//article")
-    if art is None:
-        art = root
+def _parse_era_a_element(art, year: int, meeting_no: int) -> AbstractRecord:
     doi = _text(art.find('.//article-id[@pub-id-type="doi"]')) or None
     pmcid = _text(art.find('.//article-id[@pub-id-type="pmcid"]')) or None
     if pmcid and not pmcid.startswith("PMC"):
@@ -76,6 +72,31 @@ def parse_era_a_article(xml: bytes, year: int, meeting_no: int) -> AbstractRecor
         license="cc-by",
         source_url=f"https://doi.org/{doi}" if doi else "",
     )
+
+
+def _root(xml):
+    return etree.fromstring(xml) if isinstance(xml, bytes) else etree.fromstring(xml.encode())
+
+
+def parse_era_a_article(xml: bytes, year: int, meeting_no: int) -> AbstractRecord:
+    root = _root(xml)
+    art = root.find(".//article")
+    return _parse_era_a_element(art if art is not None else root, year, meeting_no)
+
+
+def parse_era_a_articleset(xml: bytes, year: int, meeting_no: int) -> list[AbstractRecord]:
+    """Parse every <article> in a batched PMC articleset into Era A records."""
+    root = _root(xml)
+    arts = root.findall(".//article")
+    if not arts:
+        arts = [root]
+    out = []
+    for art in arts:
+        try:
+            out.append(_parse_era_a_element(art, year, meeting_no))
+        except Exception:
+            continue
+    return out
 
 
 _HEADER_RE = re.compile(r"^([A-Z]{1,2})(\d+)\s+\S")

@@ -8,8 +8,11 @@ BUNDLE = Path(__file__).parent / "fixtures" / "era_c_bundle_trimmed.xml"
 
 def test_acquire_year_era_a_routes_and_filters(tmp_path, monkeypatch):
     monkeypatch.setattr(acquire, "_era_a_pmcids", lambda y, c: ["PMC1", "PMC2"])
-    xml = FIXTURE.read_text()
-    monkeypatch.setattr(acquire, "eutils_efetch", lambda db, ids, c: xml)
+    # batched efetch returns a multi-article articleset; simulate two articles
+    one = FIXTURE.read_text()
+    inner = one[one.index("<article") : one.rindex("</article>") + len("</article>")]
+    twoset = f"<pmc-articleset>{inner}{inner}</pmc-articleset>"
+    monkeypatch.setattr(acquire, "eutils_efetch", lambda db, ids, c: twoset)
     recs = acquire.acquire_year(2015, tmp_path)
     assert len(recs) == 2
     assert recs[0].era == "A"
