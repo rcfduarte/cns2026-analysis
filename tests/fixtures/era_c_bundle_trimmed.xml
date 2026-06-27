@@ -1,0 +1,75 @@
+<article><body><p id="Par1">
+<bold>K1 The cerebral cortex, a delay coupled oscillator network: Computations in high dimensional dynamic space</bold>
+</p><p id="Par2">
+<italic toggle="yes"><underline>Wolf Singer</underline></italic>
+<sup><italic toggle="yes">1</italic></sup>
+</p><p id="Par3">
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">Max Planck Institute for Brain Research (MPI), Ernst Strüngmann Institute (ESI) for Neuroscience in Cooperation With Max Planck Society, Frankfurt Institute for Advanced Studies (FIAS), Frankfurt am Main, Germany</italic>
+</p><p id="Par4"><bold>Email</bold>: w.singer@brain.mpg.de</p><p id="Par5">The supra-granular layers of the cerebral cortex can be considered as a delay coupled recurrent network whose nodes are feature selective and have a propensity to oscillate. Such networks exhibit high dimensional non-linear dynamics that can be exploited for computations. Results obtained with parallel recordings of neuronal responses in cat and monkey visual cortex suggest that the cerebral cortex exploits this high dimensional dynamic space for the flexible encoding of relations among features (feature binding), for the acquisition and storage of information about statistical contingencies of features in the environment (priors), for the ultra-fast matching of priors with sensory evidence (predictive coding) and the classification of stimulus specific activity vectors by segregation in high dimensional space. In addition, the network dynamics allow for the generation of stimulus specific response sequences (temporal codes) and the superposition of information provided by sequentially presented stimuli. These computations complement those realized in multilayer feed forward architectures and allow for the coexistence of rate and temporal codes. It is proposed that differences between the performance of natural and artificial systems, e.g., the deep learning networks, are mainly due to the fact that recurrent processing permits exploitation of the temporal dimension for computation. For review, see [1].</p><p id="Par6">
+<bold>References</bold>
+</p><p id="Par7">1. Singer W. Recurrent dynamics in the cerebral cortex: Integration of sensory evidence with stored knowledge. Proceedings of the National Academy of Sciences. 2021 Aug 17;118(33).</p><p id="Par8">
+<bold>K2 Correlations, scaling, and dimensionality</bold>
+</p><p id="Par9">
+<italic toggle="yes"><underline>William Bialek</underline></italic>
+<sup><bold><italic toggle="yes">1</italic></bold></sup>
+</p><p id="Par10">
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">Princeton University and The CUNY Graduate Center, Princeton, NJ, United States of America</italic>
+</p><p id="Par11"><bold>Email</bold>: wbialek@Princeton.edu</p><p id="Par12">We confront high dimensional data in thinking about the inputs to our sensory systems, the activity of neural populations, and the behavioral outputs of organisms. It is tempting to simplify be searching for lower dimensional structure, but what are the alternatives?</p><p id="Par13">As an example, the scale invariant structure of natural images means that one can achieve a thousand-fold reduction of dimensionality with only a two-fold loss of variance, but this would miss important aspects of the natural image ensemble. Renormalization group ideas from statistical physics offer other paths to simplification, reducing the dimensionality of models rather than the data itself. We have tried this approach to analyzing the collective activity of 1000 + neurons in the hippocampus, revealing scaling behaviors that are reproducible across animals, sometimes to the second decimal place. For animal behavior, we have tried simplifying by compressing behavioral states while maintaining information about future states, and the simplest models that can capture the resulting correlations involved scale invariant interactions over multiple time scales. We are just scratching the surface, but these results suggest that high dimensional data on brains and behavior can be organized in surprising ways.</p><p id="Par14">
+<bold>K3 Advances in computational psychiatry: Understanding cognitive control as a network process</bold>
+</p><p id="Par15">
+<italic toggle="yes"><underline>Danielle Bassett</underline></italic>
+<sup><bold><italic toggle="yes">1</italic></bold></sup>
+</p><p id="Par16">
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">University of Pennsylvania, Department of Bioengineering, Department of Physics and Astronomy, Philadelphia, PA, United States of America</italic>
+</p><p id="Par17"><bold>Email</bold>: dsb@seas.upenn.edu</p><p id="Par18">The human brain is a complex organ characterized by heterogeneous patterns of interconnections. Non-invasive imaging techniques now allow for these patterns to be carefully and comprehensively mapped in individual humans, paving the way for a better understanding of how wiring supports cognitive processes. While a large body of work now focuses on descriptive statistics to characterize these wiring patterns, a critical open question lies in how the organization of these networks constrains the potential repertoire of brain dynamics. Here I describe an approach for understanding how perturbations to brain dynamics propagate through complex wiring patterns, driving the brain into new states of activity. Drawing on a range of disciplinary tools – from graph theory to network control theory and optimization – I identify control points in brain networks and characterize trajectories of brain activity states following perturbation to those points. Finally, I describe how these computational tools and approaches can be used to better understand the brain's intrinsic control mechanisms and their alterations in psychiatric conditions.</p><p id="Par19">
+<bold>K4 Significant spatio-temporal spike patterns in macaque monkey motor cortex</bold>
+</p><p id="Par20">
+<italic toggle="yes"><underline>Sonja Grün</underline></italic>
+<sup><italic toggle="yes">1,2</italic></sup>
+</p><p id="Par21">
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">Jülich Research Centre, Institute of Neuroscience and Medicine (INM-6), Institute for Advanced Simulation (IAS-6), and JARA Brain Institute I (INM-10), Jülich, Germany</italic>
+</p><p id="Par22">
+<sup><italic toggle="yes">2</italic></sup>
+<italic toggle="yes">Theoretical Systems Neurobiology, RWTH Aachen University, Aachen, Germany</italic>
+</p><p id="Par23"><bold>Email</bold>: s.gruen@fz-juelich.de</p><p id="Par24">The cell assembly hypothesis [1] postulates that neurons coordinate their activity through the formation and repetitive co-activation of groups. While the classical theory of neural coding revolves around the concept that information is encoded in firing rates, we assume that assembly activity is expressed by the occurrence of precisely timed spatio-temporal patterns (STPs) of spikes emitted by neurons that are members of the assembly, e.g., a synfire chain. We first report on a method that is capable to detect significant STPs in massively parallel spike trains (SPADE [2–4]), and then present pattern results from the analysis of Utah array recording from pre-/motor cortex of monkey. SPADE first identifies repeating STPs using Frequent Itemset Mining [5], and then evaluates the detected patterns for significance through comparison to patterns found in surrogate data. Various surrogate techniques can be used to evaluate significance, and their correct choice is crucial to ensure that by-chance patterns are not classified as significant [6]. The final step of the method is the removal of false positive patterns being a by-product of true patterns with background activity. Here, we evaluate how different six types of surrogate techniques affect the results of SPADE, in terms of the general statistics of the generated surrogates, and in terms of the amount of false positives. We conclude that spike-train shifting [7] is the preferable choice for our type of data, which typically show a CV &lt; 1 and have a dead time after the spikes of 1.6/1.2ms induced by the spike sorter (Plexon). Uniform dithering, in contrast, leads to a high false positive rate. In a next step, we evaluate if cell assemblies are active in relation to motor behavior [2]. Therefore, we analyze 20 experimental sessions, each of about 15min recording, consisting of parallel spike data recorded by a 10x10 electrode Utah array in the pre-/motor cortex of two macaque monkeys performing a reach-to-grasp task [8,9]. The monkeys have four possible behavioral conditions of grasping and pulling an object consisting of combinations of two possible grip types (precision or side grip) and two different amounts of force required to pull the object (low or high). We segment each session into 6 periods of 500ms duration and analyze them independently for the occurrence of STPs. Each significant STP is identified by its neuron composition, its number and times of occurrences and the delays between spikes. We find that significant STPs indeed occur in all phases of the behavior. Their size ranges between 2 and 6 neurons, and their maximal spatial extent is 60ms. The STPs are specific to the behavioral context, i.e., within the different trial epochs and across conditions (different grip and force type combinations). This suggests that different assemblies are active in the context of different behavior. Within a recording session, we typically find one neuron that is involved in all STPs of a session. The neurons involved in STPs within a session are not clustered on the cortex, but may be far apart (up to 3.6mm). We further plan to investigate the spatial arrangement of the patterns on the Utah array, to determine whether there are preferred spatial directions of pattern spike sequences, as found in [2] for synchronous patterns. Finally, we plan to investigate whether the grip type can be better decoded on the basis of the type of STPs or by using the firing rates of the neurons.</p><p id="Par25">
+<bold>References</bold>
+</p><p id="Par26">1. Hebb DO. The organisation of behaviour: a neuropsychological theory. New York: Science Editions; 1949.</p><p id="Par27">2. Torre E, Quaglio P, Denker M, Brochier T, Riehle A, et al. Synchronous spike patterns in macaque motor cortex during an instructed-delay reach-to-grasp task. Journal of Neuroscience. 2016 Aug 10;36(32):8329–40.</p><p id="Par28">3. Quaglio P, Yegenoglu A, Torre E, Endres DM, Grün S. Detection and evaluation of spatio-temporal spike patterns in massively parallel spike train data with spade. Frontiers in computational neuroscience. 2017 May 24;11:41.</p><p id="Par29">4. Stella A, Quaglio P, Torre E, Grün S. 3d-SPADE: Significance evaluation of spatio-temporal patterns of various temporal extents. Biosystems. 2019 Nov 1;185:104,022.</p><p id="Par30">5. Porrmann F, Pilz S, Stella A, Kleinjohann A, Denker M, et al. Acceleration of the SPADE Method Using a Custom-Tailored FP-Growth Implementation. Frontiers in Neuroinformatics. 2021:48.</p><p id="Par31">6. Stella A, Bouss P, Palm G, Grün S. Generating surrogates for significance estimation of spatio-temporal spike patterns. bioRxiv. 2021 Jan 1.</p><p id="Par32">7. Pipa G, Wheeler DW, Singer W, Nikolić D. NeuroXidence: reliable and efficient analysis of an excess or deficiency of joint-spike events. Journal of computational neuroscience. 2008 Aug 1;25(1):64–88.</p><p id="Par33">8. Brochier T, Zehl L, Hao Y, Duret M, Sprenger J, et al. Massively parallel recordings in macaque motor cortex during an instructed delayed reach-to-grasp task. Scientific data. 2018 Apr 10;5(1):1–23.</p><p id="Par34">9. Riehle A, Wirtssohn S, Grün S, Brochier T. Mapping the spatio-temporal structure of motor cortical LFP and spiking activities during reach-to-grasp movements. Frontiers in neural circuits. 2013 Mar 27;7:48.</p><p id="Par35">
+<bold>F1 Cortical oscillations support sampling-based computations in spiking neural networks</bold>
+</p><p id="Par36">
+<italic toggle="yes"><underline>Andreas Baumbach</underline></italic>
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">, Agnes Korcsak-Gorzo</italic>
+<sup><italic toggle="yes">2</italic></sup>
+<italic toggle="yes">, Michael G. Müller</italic>
+<sup><italic toggle="yes">3</italic></sup>
+<italic toggle="yes">, Luziwei Leng</italic>
+<sup><italic toggle="yes">4</italic></sup>
+<italic toggle="yes">, Oliver Julien Breitwieser</italic>
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">, Sacha van Albada</italic>
+<sup><italic toggle="yes">2</italic></sup>
+<italic toggle="yes">, Walter Senn</italic>
+<sup><italic toggle="yes">5</italic></sup>
+<italic toggle="yes">, Karlheinz Meier</italic>
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">, Robert Legenstein</italic>
+<sup><italic toggle="yes">3</italic></sup>
+<italic toggle="yes">, Mihai A. Petrovici</italic>
+<sup><italic toggle="yes">6</italic></sup>
+</p><p id="Par37">
+<sup><italic toggle="yes">1</italic></sup>
+<italic toggle="yes">Heidelberg University, Heidelberg, Germany</italic>
+</p><p id="Par38">
+<sup><italic toggle="yes">2</italic></sup>
+<italic toggle="yes">Jülich Research Centre, Institute of Neuroscience and Medicine (INM-6, INM-10) and Institute for Advanced Simulation (IAS-6), Jülich, Germany</italic>
+</p><p id="Par39">
+<sup><italic toggle="yes">3</italic></sup>
+<italic toggle="yes">Graz University of Technology, Graz, Austria</italic>
+</p><p id="Par40">
+<sup><italic toggle="yes">4</italic></sup>
+<italic toggle="yes">Heidelberg University and University of Bern, Heidelberg, Germany</italic>
+</p></body></article>
