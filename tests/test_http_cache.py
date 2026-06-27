@@ -4,7 +4,7 @@ from cns_scientometrics.http_cache import cached_get
 def test_cache_returns_stored_without_refetch(tmp_path, monkeypatch):
     calls = {"n": 0}
 
-    def fake_fetch(url, params):
+    def fake_fetch(url, params, user_agent=None):
         calls["n"] += 1
         return "<xml>ok</xml>"
 

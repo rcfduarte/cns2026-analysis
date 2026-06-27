@@ -15,9 +15,17 @@ def _text(el) -> str:
 
 # A CNS supplement abstract DOI ends in -S<suppl>-<CODE><num>, e.g. -16-S1-P173, -S1-F3, -S1-A1.
 _SUPP_RE = re.compile(r"-S\d+-([A-Z]{1,2})(\d+)$")
-# Prefix → record type. Keynotes K; orals O/F(featured)/I(invited)/T(tutorial)/W(workshop);
+# Prefix → record type. Keynotes K/L(lecture); orals O/F(featured)/I(invited)/T/W;
 # posters P; front matter A.
-_PREFIX_KIND = {"K": "keynote", "O": "oral", "F": "oral", "I": "oral", "T": "oral", "W": "oral"}
+_PREFIX_KIND = {
+    "K": "keynote",
+    "L": "keynote",
+    "O": "oral",
+    "F": "oral",
+    "I": "oral",
+    "T": "oral",
+    "W": "oral",
+}
 
 
 def is_supplement_abstract(doi: str | None) -> bool:

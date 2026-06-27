@@ -41,6 +41,12 @@ _ERA_C_IDS = {
     2021: ("PMC8687879",),
 }
 
+# Years whose abstracts are NOT in PMC — fetched from BMC supplement HTML instead.
+BMC_HTML_FALLBACK = {
+    2008: "https://bmcneurosci.biomedcentral.com/articles/supplements/volume-9-supplement-1",
+    2009: "https://bmcneurosci.biomedcentral.com/articles/supplements/volume-10-supplement-1",
+}
+
 YEARS: dict[int, YearSource] = {}
 YEARS |= {y: _mk(y, "A", "cc-by") for y in range(2007, 2016)}
 YEARS |= {y: _mk(y, "B", "cc-by", _ERA_B_IDS.get(y, ())) for y in range(2016, 2021)}

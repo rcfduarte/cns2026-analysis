@@ -2,10 +2,11 @@
 
 from pathlib import Path
 
+from .bmc_html import acquire_bmc_supplement
 from .ncbi import eutils_efetch, eutils_esearch
 from .parse_jats import parse_era_a_articleset, split_bundle, split_flat_paragraphs
 from .schema import AbstractRecord
-from .sources import YEARS, YearSource
+from .sources import BMC_HTML_FALLBACK, YEARS, YearSource
 
 _BATCH = 100
 
@@ -26,6 +27,8 @@ def _parse_bundle(xml: bytes, src: YearSource) -> list[AbstractRecord]:
 
 def acquire_year(year: int, cache_dir: Path) -> list[AbstractRecord]:
     src = YEARS[year]
+    if year in BMC_HTML_FALLBACK:
+        return acquire_bmc_supplement(BMC_HTML_FALLBACK[year], year, src.meeting_no, cache_dir)
     if src.era == "A":
         recs: list[AbstractRecord] = []
         ids = _era_a_pmcids(year, cache_dir)
