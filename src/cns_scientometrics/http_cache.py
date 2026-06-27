@@ -1,5 +1,6 @@
 """Disk-cached HTTP GET with polite retry/backoff."""
 
+import hashlib
 from pathlib import Path
 
 import httpx
@@ -13,13 +14,19 @@ from tenacity import (
 _UA = "cns-scientometrics/0.1 (mailto:rcfduarte@gmail.com)"
 
 
+def stable_key(*parts: str) -> str:
+    """Deterministic cache key across processes (builtin hash() is salted per run)."""
+    return hashlib.md5(" ".join(parts).encode("utf-8")).hexdigest()[:16]
+
+
 @retry(
     wait=wait_exponential(min=1, max=30),
     stop=stop_after_attempt(5),
     retry=retry_if_exception_type(httpx.HTTPError),
 )
 def _raw_fetch(url: str, params: dict | None, user_agent: str | None = None) -> str:
-    with httpx.Client(timeout=60, headers={"User-Agent": user_agent or _UA}, follow_redirects=True) as c:
+    headers = {"User-Agent": user_agent or _UA}
+    with httpx.Client(timeout=60, headers=headers, follow_redirects=True) as c:
         r = c.get(url, params=params)
         r.raise_for_status()
         return r.text

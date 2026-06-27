@@ -10,7 +10,7 @@ import re
 
 from lxml import html as LH
 
-from .http_cache import cached_get
+from .http_cache import cached_get, stable_key
 from .parse_jats import _classify, is_supplement_abstract
 from .schema import AbstractRecord, Author
 
@@ -28,7 +28,7 @@ def supplement_dois(supp_url: str, cache_dir, max_pages: int = 30) -> list[str]:
     seen, out = set(), []
     for page in range(1, max_pages + 1):
         html = cached_get(
-            supp_url, {"page": str(page)}, f"bmcsupp_{abs(hash(supp_url))}_{page}", cache_dir, _BROWSER_UA
+            supp_url, {"page": str(page)}, f"bmcsupp_{stable_key(supp_url)}_{page}", cache_dir, _BROWSER_UA
         )
         new = []
         for d in _DOI_RE.findall(html):  # each DOI appears >once per listing page
@@ -99,7 +99,7 @@ def acquire_bmc_supplement(supp_url: str, year: int, meeting_no: int, cache_dir)
     for doi in supplement_dois(supp_url, cache_dir):
         if not is_supplement_abstract(doi):
             continue
-        html = cached_get(base + doi, None, f"bmcart_{abs(hash(doi))}", cache_dir, _BROWSER_UA)
+        html = cached_get(base + doi, None, f"bmcart_{stable_key(doi)}", cache_dir, _BROWSER_UA)
         try:
             rec = parse_bmc_html(html, doi, year, meeting_no)
         except Exception:

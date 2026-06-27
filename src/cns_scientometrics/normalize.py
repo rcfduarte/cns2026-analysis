@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from .http_cache import cached_get
+from .http_cache import cached_get, stable_key
 from .schema import AbstractRecord
 
 _ROR = "https://api.ror.org/organizations"
@@ -15,7 +15,7 @@ def resolve_affiliation(aff: str, cache_dir: Path) -> tuple[str | None, str | No
     Best-effort: returns (None, None) on any miss or error.
     """
     try:
-        txt = cached_get(_ROR, {"affiliation": aff}, f"ror_{abs(hash(aff))}", cache_dir)
+        txt = cached_get(_ROR, {"affiliation": aff}, f"ror_{stable_key(aff)}", cache_dir)
         data = json.loads(txt)
         items = data.get("items", [])
         chosen = next((i for i in items if i.get("chosen")), items[0] if items else None)
