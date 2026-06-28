@@ -11,9 +11,10 @@ text, this project works from **structured per-abstract records** (title, author
 affiliations, full abstract body) and adds data-driven topic modelling, author/geography
 networks, and a CoSyNe×CNS contrast.
 
-> **Status.** The corpus foundation is complete: **5,394 abstracts, 2007–2025, 19 years**,
-> 0% missing titles/bodies, 98.4% with parsed authors. The analysis layer (topics,
-> networks, contrast) is the next phase. See [Roadmap](#roadmap).
+> **Status.** Corpus **and** analysis layer complete. **5,394 abstracts, 2007–2025, 19
+> years**, 0% missing titles/bodies, 98.4% with parsed authors. Findings (keyword trends,
+> 38 BERTopic topics, author/geography networks, title-vs-abstract robustness, CoSyNe×CNS
+> contrast) are in [`docs/RESULTS.md`](docs/RESULTS.md). Publishing layer (Plan 3) is next.
 
 ---
 
@@ -89,11 +90,15 @@ tests/             pytest suite (fixture-based, offline)
 
 ## Roadmap
 
-- **Plan 1 — corpus foundation** ✅ (this repo)
-- **Plan 2 — analysis**: BERTopic dynamic topic modelling, author/geography & collaboration
-  networks, a title-only vs title+abstract robustness check, and a CoSyNe×CNS keyword-axis
-  contrast.
-- **Plan 3 — publishing**: figures + interactive charts and a public write-up.
+- **Plan 1 — corpus foundation** ✅ — 5,394 abstracts, 2007–2025 ([`docs/CORPUS.md`](docs/CORPUS.md))
+- **Plan 2 — analysis** ✅ — keyword trends (A), BERTopic dynamic topics (B), author/geography
+  networks (C), title-vs-abstract robustness (D), CoSyNe×CNS contrast (E). Run via
+  `scripts/run_{keyword_trends,topics,networks,contrast}.py`. Findings in
+  [`docs/RESULTS.md`](docs/RESULTS.md).
+- **Plan 3 — publishing**: polished interactive charts (Datawrapper) + a public write-up.
+
+Install analysis extras with `pip install -e ".[analysis,topics]"` (topics pulls the
+sentence-transformers/BERTopic stack).
 
 ## Data ethics & licensing
 
