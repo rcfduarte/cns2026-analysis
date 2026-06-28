@@ -25,7 +25,9 @@ def main() -> None:
     model = fit_topics(emb, docs, min_topic_size=args.min_topic_size)
     out = write_topic_outputs(model, docs, years, Path(args.out))
     info = model.get_topic_info()
-    print(f"topics={len(info[info['Topic'] != -1])} (outliers={int((model.topics_ == -1).sum())})")
+    n_topics = len(info[info["Topic"] != -1])
+    outliers = int(info.loc[info["Topic"] == -1, "Count"].sum())
+    print(f"topics={n_topics} (outlier docs={outliers})")
     print(f"wrote {out}/topic_catalogue.csv, topics_over_time.csv, figures/")
 
 
