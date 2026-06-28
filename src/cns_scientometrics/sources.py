@@ -35,10 +35,19 @@ _ERA_B_IDS = {
     2019: ("PMC6854655",),
     2020: ("PMC7751124",),
 }
-# Era C = JCN single-article-per-meeting (flat-paragraph). 2022+ may be Springer-only
-# (not in PMC) — left empty until verified; acquisition degrades gracefully.
+# Era C = JCN single-article-per-meeting (flat-paragraph). 2021 is open in PMC; 2022-2025
+# are Springer-paywalled (Europe PMC inPMC=N, isOA=N) — ingested from user-supplied PDFs.
 _ERA_C_IDS = {
     2021: ("PMC8687879",),
+}
+
+# JCN supplement DOIs for the paywalled years, with the expected drop-in PDF filename
+# under data/pdfs/. Bodies are extracted from the PDF (same flat K1/F1/P### structure).
+JCN_PDF_SOURCES = {
+    2022: ("10.1007/s10827-022-00841-9", "cns2022.pdf"),
+    2023: ("10.1007/s10827-024-00871-5", "cns2023.pdf"),
+    2024: ("10.1007/s10827-024-00889-9", "cns2024.pdf"),
+    2025: ("10.1007/s10827-025-00915-4", "cns2025.pdf"),
 }
 
 # Years whose abstracts are NOT in PMC — fetched from BMC supplement HTML instead.
