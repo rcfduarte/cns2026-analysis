@@ -1,0 +1,1046 @@
+keyword,category,year,per10k
+deep learning,AI/ML Methods,2007,0.0
+deep learning,AI/ML Methods,2008,0.0
+deep learning,AI/ML Methods,2009,0.0
+deep learning,AI/ML Methods,2010,0.0
+deep learning,AI/ML Methods,2011,0.0
+deep learning,AI/ML Methods,2012,0.0
+deep learning,AI/ML Methods,2013,0.0
+deep learning,AI/ML Methods,2014,0.31738978639667376
+deep learning,AI/ML Methods,2015,0.08153215220422173
+deep learning,AI/ML Methods,2016,0.9380569713267253
+deep learning,AI/ML Methods,2017,0.21386104734883588
+deep learning,AI/ML Methods,2018,1.0040781018289668
+deep learning,AI/ML Methods,2019,0.7321984257733846
+deep learning,AI/ML Methods,2020,1.1638959477022754
+deep learning,AI/ML Methods,2021,0.4503439501919591
+deep learning,AI/ML Methods,2022,2.833262501770789
+deep learning,AI/ML Methods,2023,0.9199378122038949
+deep learning,AI/ML Methods,2024,2.48103778266109
+deep learning,AI/ML Methods,2025,0.949397132820659
+RNN,AI/ML Methods,2007,1.560438625111713
+RNN,AI/ML Methods,2008,0.5900998111680604
+RNN,AI/ML Methods,2009,1.420785730939613
+RNN,AI/ML Methods,2010,1.6903532838363218
+RNN,AI/ML Methods,2011,0.9441622448401533
+RNN,AI/ML Methods,2012,1.716127925078758
+RNN,AI/ML Methods,2013,1.727046117888168
+RNN,AI/ML Methods,2014,1.375355741052253
+RNN,AI/ML Methods,2015,1.9567716529013217
+RNN,AI/ML Methods,2016,0.833828418957089
+RNN,AI/ML Methods,2017,1.996036441922468
+RNN,AI/ML Methods,2018,1.5447355412753339
+RNN,AI/ML Methods,2019,1.6474464579901151
+RNN,AI/ML Methods,2020,1.6488525925782236
+RNN,AI/ML Methods,2021,4.503439501919591
+RNN,AI/ML Methods,2022,1.593710157246069
+RNN,AI/ML Methods,2023,3.5877574675951904
+RNN,AI/ML Methods,2024,2.6582547671368824
+RNN,AI/ML Methods,2025,3.432435787890075
+transformer,AI/ML Methods,2007,0.0
+transformer,AI/ML Methods,2008,0.0
+transformer,AI/ML Methods,2009,0.03643040335742597
+transformer,AI/ML Methods,2010,0.0
+transformer,AI/ML Methods,2011,0.06294414965601022
+transformer,AI/ML Methods,2012,0.0
+transformer,AI/ML Methods,2013,0.0
+transformer,AI/ML Methods,2014,0.0
+transformer,AI/ML Methods,2015,0.0
+transformer,AI/ML Methods,2016,0.20845710473927226
+transformer,AI/ML Methods,2017,0.0
+transformer,AI/ML Methods,2018,0.0
+transformer,AI/ML Methods,2019,0.06101653548111538
+transformer,AI/ML Methods,2020,0.0
+transformer,AI/ML Methods,2021,0.0
+transformer,AI/ML Methods,2022,0.0
+transformer,AI/ML Methods,2023,0.2759813436611685
+transformer,AI/ML Methods,2024,0.35443396895158436
+transformer,AI/ML Methods,2025,0.65727493810661
+foundation model,AI/ML Methods,2007,0.0
+foundation model,AI/ML Methods,2008,0.0
+foundation model,AI/ML Methods,2009,0.0
+foundation model,AI/ML Methods,2010,0.0
+foundation model,AI/ML Methods,2011,0.0
+foundation model,AI/ML Methods,2012,0.0
+foundation model,AI/ML Methods,2013,0.0
+foundation model,AI/ML Methods,2014,0.0
+foundation model,AI/ML Methods,2015,0.0
+foundation model,AI/ML Methods,2016,0.0
+foundation model,AI/ML Methods,2017,0.0
+foundation model,AI/ML Methods,2018,0.0
+foundation model,AI/ML Methods,2019,0.0
+foundation model,AI/ML Methods,2020,0.0
+foundation model,AI/ML Methods,2021,0.0
+foundation model,AI/ML Methods,2022,0.0
+foundation model,AI/ML Methods,2023,0.0
+foundation model,AI/ML Methods,2024,0.0
+foundation model,AI/ML Methods,2025,0.14606109735702444
+self-supervised,AI/ML Methods,2007,0.0
+self-supervised,AI/ML Methods,2008,0.0
+self-supervised,AI/ML Methods,2009,0.0
+self-supervised,AI/ML Methods,2010,0.0
+self-supervised,AI/ML Methods,2011,0.06294414965601022
+self-supervised,AI/ML Methods,2012,0.0
+self-supervised,AI/ML Methods,2013,0.0
+self-supervised,AI/ML Methods,2014,0.0
+self-supervised,AI/ML Methods,2015,0.0
+self-supervised,AI/ML Methods,2016,0.0
+self-supervised,AI/ML Methods,2017,0.0
+self-supervised,AI/ML Methods,2018,0.0
+self-supervised,AI/ML Methods,2019,0.0
+self-supervised,AI/ML Methods,2020,0.0
+self-supervised,AI/ML Methods,2021,0.0
+self-supervised,AI/ML Methods,2022,0.7083156254426972
+self-supervised,AI/ML Methods,2023,0.0
+self-supervised,AI/ML Methods,2024,0.0
+self-supervised,AI/ML Methods,2025,0.2921221947140489
+LLM,AI/ML Methods,2007,0.0
+LLM,AI/ML Methods,2008,0.0
+LLM,AI/ML Methods,2009,0.0
+LLM,AI/ML Methods,2010,0.0
+LLM,AI/ML Methods,2011,0.12588829931202045
+LLM,AI/ML Methods,2012,0.0
+LLM,AI/ML Methods,2013,0.0
+LLM,AI/ML Methods,2014,0.0
+LLM,AI/ML Methods,2015,0.0
+LLM,AI/ML Methods,2016,0.0
+LLM,AI/ML Methods,2017,0.0
+LLM,AI/ML Methods,2018,0.0
+LLM,AI/ML Methods,2019,0.0
+LLM,AI/ML Methods,2020,0.0
+LLM,AI/ML Methods,2021,0.0
+LLM,AI/ML Methods,2022,0.0
+LLM,AI/ML Methods,2023,0.09199378122038951
+LLM,AI/ML Methods,2024,1.063301906854753
+LLM,AI/ML Methods,2025,1.1684887788561955
+reinforcement learning,AI/ML Methods,2007,2.411586966081739
+reinforcement learning,AI/ML Methods,2008,1.5173995144321555
+reinforcement learning,AI/ML Methods,2009,1.0929121007227793
+reinforcement learning,AI/ML Methods,2010,0.2600543513594341
+reinforcement learning,AI/ML Methods,2011,2.014212788992327
+reinforcement learning,AI/ML Methods,2012,0.49032226430821657
+reinforcement learning,AI/ML Methods,2013,1.4967733021697456
+reinforcement learning,AI/ML Methods,2014,1.375355741052253
+reinforcement learning,AI/ML Methods,2015,0.9783858264506609
+reinforcement learning,AI/ML Methods,2016,1.667656837914178
+reinforcement learning,AI/ML Methods,2017,1.2831662840930151
+reinforcement learning,AI/ML Methods,2018,1.6219723183391002
+reinforcement learning,AI/ML Methods,2019,1.2813472451034231
+reinforcement learning,AI/ML Methods,2020,2.1338092374541713
+reinforcement learning,AI/ML Methods,2021,2.139133763411806
+reinforcement learning,AI/ML Methods,2022,1.593710157246069
+reinforcement learning,AI/ML Methods,2023,1.103925374644674
+reinforcement learning,AI/ML Methods,2024,1.5949528602821295
+reinforcement learning,AI/ML Methods,2025,0.949397132820659
+generative model,AI/ML Methods,2007,0.7092902841416879
+generative model,AI/ML Methods,2008,0.42149986512004317
+generative model,AI/ML Methods,2009,0.14572161342970388
+generative model,AI/ML Methods,2010,0.7801630540783023
+generative model,AI/ML Methods,2011,0.6923856462161124
+generative model,AI/ML Methods,2012,1.1032250946934872
+generative model,AI/ML Methods,2013,0.4029774275072392
+generative model,AI/ML Methods,2014,0.21159319093111587
+generative model,AI/ML Methods,2015,0.08153215220422173
+generative model,AI/ML Methods,2016,0.5211427618481806
+generative model,AI/ML Methods,2017,0.3564350789147265
+generative model,AI/ML Methods,2018,1.1585516559565001
+generative model,AI/ML Methods,2019,1.0372811031789615
+generative model,AI/ML Methods,2020,1.0669046187270856
+generative model,AI/ML Methods,2021,0.5629299377399489
+generative model,AI/ML Methods,2022,1.593710157246069
+generative model,AI/ML Methods,2023,1.2879129370854532
+generative model,AI/ML Methods,2024,0.17721698447579218
+generative model,AI/ML Methods,2025,0.8763665841421466
+backpropagation,AI/ML Methods,2007,0.28371611365667515
+backpropagation,AI/ML Methods,2008,1.2644995953601295
+backpropagation,AI/ML Methods,2009,0.14572161342970388
+backpropagation,AI/ML Methods,2010,0.5201087027188682
+backpropagation,AI/ML Methods,2011,0.7553297958721227
+backpropagation,AI/ML Methods,2012,0.0
+backpropagation,AI/ML Methods,2013,0.4605456314368448
+backpropagation,AI/ML Methods,2014,0.10579659546555793
+backpropagation,AI/ML Methods,2015,1.1414501308591043
+backpropagation,AI/ML Methods,2016,0.5211427618481806
+backpropagation,AI/ML Methods,2017,0.14257403156589057
+backpropagation,AI/ML Methods,2018,0.7723677706376669
+backpropagation,AI/ML Methods,2019,1.2203307096223077
+backpropagation,AI/ML Methods,2020,1.1638959477022754
+backpropagation,AI/ML Methods,2021,1.9139617883158264
+backpropagation,AI/ML Methods,2022,1.593710157246069
+backpropagation,AI/ML Methods,2023,1.8398756244077898
+backpropagation,AI/ML Methods,2024,0.35443396895158436
+backpropagation,AI/ML Methods,2025,3.870619079961148
+Bayesian,Core Concepts,2007,0.993006397798363
+Bayesian,Core Concepts,2008,2.1917992986242245
+Bayesian,Core Concepts,2009,1.8579505712287245
+Bayesian,Core Concepts,2010,1.8203804595160389
+Bayesian,Core Concepts,2011,2.3918776869283884
+Bayesian,Core Concepts,2012,0.9806445286164331
+Bayesian,Core Concepts,2013,3.2813876239875195
+Bayesian,Core Concepts,2014,2.327525100242274
+Bayesian,Core Concepts,2015,1.9567716529013217
+Bayesian,Core Concepts,2016,2.3972567045016313
+Bayesian,Core Concepts,2017,1.710888378790687
+Bayesian,Core Concepts,2018,3.2439446366782003
+Bayesian,Core Concepts,2019,1.3423637805845385
+Bayesian,Core Concepts,2020,4.461601132858722
+Bayesian,Core Concepts,2021,4.728611477015571
+Bayesian,Core Concepts,2022,2.4791046890494406
+Bayesian,Core Concepts,2023,1.655888061967011
+Bayesian,Core Concepts,2024,0.0
+Bayesian,Core Concepts,2025,3.067283044497513
+population,Core Concepts,2007,2.5534450229100765
+population,Core Concepts,2008,1.9388993795521985
+population,Core Concepts,2009,2.2586850081604104
+population,Core Concepts,2010,1.1702445811174536
+population,Core Concepts,2011,2.8324867345204603
+population,Core Concepts,2012,3.309675284080462
+population,Core Concepts,2013,4.375183498650025
+population,Core Concepts,2014,3.0681012685011795
+population,Core Concepts,2015,4.484268371232195
+population,Core Concepts,2016,2.814170913980176
+population,Core Concepts,2017,2.42375853662014
+population,Core Concepts,2018,3.398418190805734
+population,Core Concepts,2019,4.027091341753615
+population,Core Concepts,2020,2.61876588233012
+population,Core Concepts,2021,3.827923576631653
+population,Core Concepts,2022,2.4791046890494406
+population,Core Concepts,2023,3.4037699051544115
+population,Core Concepts,2024,1.9493868292337138
+population,Core Concepts,2025,4.746985664103295
+circuit,Core Concepts,2007,2.411586966081739
+circuit,Core Concepts,2008,7.249797680064742
+circuit,Core Concepts,2009,8.05111914199114
+circuit,Core Concepts,2010,4.550951148790097
+circuit,Core Concepts,2011,4.657867074544757
+circuit,Core Concepts,2012,4.412900378773949
+circuit,Core Concepts,2013,4.375183498650025
+circuit,Core Concepts,2014,5.6072195596745695
+circuit,Core Concepts,2015,4.076607610211086
+circuit,Core Concepts,2016,4.273370647155081
+circuit,Core Concepts,2017,5.774248278418569
+circuit,Core Concepts,2018,5.947231833910035
+circuit,Core Concepts,2019,6.284703154554885
+circuit,Core Concepts,2020,6.692401699288083
+circuit,Core Concepts,2021,7.430675178167325
+circuit,Core Concepts,2022,4.781130471738206
+circuit,Core Concepts,2023,5.887601998104929
+circuit,Core Concepts,2024,4.784858580846389
+circuit,Core Concepts,2025,8.471543646707417
+plasticity,Core Concepts,2007,30.357624161264237
+plasticity,Core Concepts,2008,28.24049096304289
+plasticity,Core Concepts,2009,26.44847283749126
+plasticity,Core Concepts,2010,23.144837270989633
+plasticity,Core Concepts,2011,18.631468298179026
+plasticity,Core Concepts,2012,13.60644283455301
+plasticity,Core Concepts,2013,20.26400778322117
+plasticity,Core Concepts,2014,15.23470974704034
+plasticity,Core Concepts,2015,23.88892059583697
+plasticity,Core Concepts,2016,17.718853902838145
+plasticity,Core Concepts,2017,27.16035301330216
+plasticity,Core Concepts,2018,18.227879387048937
+plasticity,Core Concepts,2019,13.789737018732078
+plasticity,Core Concepts,2020,11.541968148047564
+plasticity,Core Concepts,2021,14.74876436878666
+plasticity,Core Concepts,2022,8.853945318033716
+plasticity,Core Concepts,2023,21.434551024350753
+plasticity,Core Concepts,2024,24.810377826610903
+plasticity,Core Concepts,2025,23.077653382409864
+decision,Core Concepts,2007,2.695303079738414
+decision,Core Concepts,2008,0.2528999190720259
+decision,Core Concepts,2009,1.0564816973653532
+decision,Core Concepts,2010,2.7305706892740584
+decision,Core Concepts,2011,3.6507606800485926
+decision,Core Concepts,2012,1.3483862268475955
+decision,Core Concepts,2013,2.1875917493250125
+decision,Core Concepts,2014,2.53911829117339
+decision,Core Concepts,2015,2.038303805105543
+decision,Core Concepts,2016,3.647999332937265
+decision,Core Concepts,2017,2.281184505054249
+decision,Core Concepts,2018,1.8536826495304004
+decision,Core Concepts,2019,3.1118433095368845
+decision,Core Concepts,2020,1.745843921553413
+decision,Core Concepts,2021,3.039821663795724
+decision,Core Concepts,2022,1.062473438164046
+decision,Core Concepts,2023,4.783676623460254
+decision,Core Concepts,2024,2.48103778266109
+decision,Core Concepts,2025,3.2863746905330498
+latent,Core Concepts,2007,0.0
+latent,Core Concepts,2008,0.0
+latent,Core Concepts,2009,0.0
+latent,Core Concepts,2010,0.0
+latent,Core Concepts,2011,0.12588829931202045
+latent,Core Concepts,2012,0.0
+latent,Core Concepts,2013,0.0
+latent,Core Concepts,2014,0.10579659546555793
+latent,Core Concepts,2015,0.0
+latent,Core Concepts,2016,0.9380569713267253
+latent,Core Concepts,2017,0.28514806313178115
+latent,Core Concepts,2018,0.15447355412753336
+latent,Core Concepts,2019,0.06101653548111538
+latent,Core Concepts,2020,0.0
+latent,Core Concepts,2021,0.22517197509597955
+latent,Core Concepts,2022,0.531236719082023
+latent,Core Concepts,2023,1.0119315934242845
+latent,Core Concepts,2024,1.4177358758063374
+latent,Core Concepts,2025,1.898794265641318
+manifold,Core Concepts,2007,1.2767225114550382
+manifold,Core Concepts,2008,0.9272997032640949
+manifold,Core Concepts,2009,0.47359524364653766
+manifold,Core Concepts,2010,0.5201087027188682
+manifold,Core Concepts,2011,0.8812180951841432
+manifold,Core Concepts,2012,0.3677416982311625
+manifold,Core Concepts,2013,1.8421825257473792
+manifold,Core Concepts,2014,0.9521693591900212
+manifold,Core Concepts,2015,1.222982283063326
+manifold,Core Concepts,2016,1.8761139426534506
+manifold,Core Concepts,2017,1.9247494261395228
+manifold,Core Concepts,2018,1.3902619871478004
+manifold,Core Concepts,2019,0.4271157483678077
+manifold,Core Concepts,2020,2.61876588233012
+manifold,Core Concepts,2021,1.9139617883158264
+manifold,Core Concepts,2022,4.781130471738206
+manifold,Core Concepts,2023,5.427633092002981
+manifold,Core Concepts,2024,4.607641596370596
+manifold,Core Concepts,2025,7.595177062565272
+dimensionality,Core Concepts,2007,1.1348644546267006
+dimensionality,Core Concepts,2008,0.16859994604801726
+dimensionality,Core Concepts,2009,0.5828864537188155
+dimensionality,Core Concepts,2010,0.7801630540783023
+dimensionality,Core Concepts,2011,1.6365478910562656
+dimensionality,Core Concepts,2012,0.49032226430821657
+dimensionality,Core Concepts,2013,0.8059548550144784
+dimensionality,Core Concepts,2014,1.375355741052253
+dimensionality,Core Concepts,2015,0.5707250654295521
+dimensionality,Core Concepts,2016,1.2507426284356338
+dimensionality,Core Concepts,2017,2.281184505054249
+dimensionality,Core Concepts,2018,4.479733069698468
+dimensionality,Core Concepts,2019,1.0372811031789615
+dimensionality,Core Concepts,2020,2.61876588233012
+dimensionality,Core Concepts,2021,4.390853514371601
+dimensionality,Core Concepts,2022,5.843603909902252
+dimensionality,Core Concepts,2023,3.0357947802728535
+dimensionality,Core Concepts,2024,3.8987736584674275
+dimensionality,Core Concepts,2025,2.044855362998342
+recurrence,Core Concepts,2007,5.81618032996184
+recurrence,Core Concepts,2008,4.552198543296466
+recurrence,Core Concepts,2009,2.8780018652366515
+recurrence,Core Concepts,2010,1.8203804595160389
+recurrence,Core Concepts,2011,3.713704829704603
+recurrence,Core Concepts,2012,3.309675284080462
+recurrence,Core Concepts,2013,8.923071609088867
+recurrence,Core Concepts,2014,3.808677436760085
+recurrence,Core Concepts,2015,4.158139762415308
+recurrence,Core Concepts,2016,3.8564564376765373
+recurrence,Core Concepts,2017,4.633656025891444
+recurrence,Core Concepts,2018,5.715521502718734
+recurrence,Core Concepts,2019,3.7220086643480386
+recurrence,Core Concepts,2020,4.170627145933153
+recurrence,Core Concepts,2021,5.741885364947478
+recurrence,Core Concepts,2022,3.364499220852812
+recurrence,Core Concepts,2023,5.243645529562201
+recurrence,Core Concepts,2024,2.6582547671368824
+recurrence,Core Concepts,2025,1.8257637169628054
+predictive coding,Core Concepts,2007,0.28371611365667515
+predictive coding,Core Concepts,2008,0.5900998111680604
+predictive coding,Core Concepts,2009,0.10929121007227792
+predictive coding,Core Concepts,2010,0.13002717567971706
+predictive coding,Core Concepts,2011,0.5035531972480818
+predictive coding,Core Concepts,2012,0.24516113215410829
+predictive coding,Core Concepts,2013,0.6908184471552672
+predictive coding,Core Concepts,2014,0.7405761682589055
+predictive coding,Core Concepts,2015,0.08153215220422173
+predictive coding,Core Concepts,2016,0.6253713142178169
+predictive coding,Core Concepts,2017,0.712870157829453
+predictive coding,Core Concepts,2018,1.5447355412753339
+predictive coding,Core Concepts,2019,2.1355787418390384
+predictive coding,Core Concepts,2020,3.297705185156447
+predictive coding,Core Concepts,2021,2.7020637011517548
+predictive coding,Core Concepts,2022,3.187420314492138
+predictive coding,Core Concepts,2023,1.5638942807466214
+predictive coding,Core Concepts,2024,1.240518891330545
+predictive coding,Core Concepts,2025,1.898794265641318
+information theory,Core Concepts,2007,2.695303079738414
+information theory,Core Concepts,2008,2.4446992176962503
+information theory,Core Concepts,2009,4.298787596176265
+information theory,Core Concepts,2010,2.6005435135943413
+information theory,Core Concepts,2011,2.4548218365843986
+information theory,Core Concepts,2012,3.7999975483886783
+information theory,Core Concepts,2013,3.9722060711427867
+information theory,Core Concepts,2014,2.115931909311158
+information theory,Core Concepts,2015,4.810396980049082
+information theory,Core Concepts,2016,2.605713809240904
+information theory,Core Concepts,2017,3.992072883844936
+information theory,Core Concepts,2018,3.166707859614434
+information theory,Core Concepts,2019,3.5389590579046923
+information theory,Core Concepts,2020,3.782661830032395
+information theory,Core Concepts,2021,3.7153375890836626
+information theory,Core Concepts,2022,3.7186570335741607
+information theory,Core Concepts,2023,3.4037699051544115
+information theory,Core Concepts,2024,4.253207627419012
+information theory,Core Concepts,2025,3.432435787890075
+oscillation,Core Concepts,2007,8.79519952335693
+oscillation,Core Concepts,2008,8.935797140544915
+oscillation,Core Concepts,2009,9.544765679645606
+oscillation,Core Concepts,2010,10.662228405736798
+oscillation,Core Concepts,2011,13.218271427762147
+oscillation,Core Concepts,2012,14.096765098861226
+oscillation,Core Concepts,2013,16.061528896359963
+oscillation,Core Concepts,2014,16.398472297161476
+oscillation,Core Concepts,2015,26.090288705350957
+oscillation,Core Concepts,2016,17.927311007577416
+oscillation,Core Concepts,2017,16.253439598511527
+oscillation,Core Concepts,2018,10.735912011863569
+oscillation,Core Concepts,2019,16.77954725730673
+oscillation,Core Concepts,2020,13.384803398576166
+oscillation,Core Concepts,2021,15.64945226917058
+oscillation,Core Concepts,2022,11.333050007083155
+oscillation,Core Concepts,2023,15.546949026245827
+oscillation,Core Concepts,2024,18.25334940100659
+oscillation,Core Concepts,2025,11.903979434597494
+working memory,Core Concepts,2007,2.695303079738414
+working memory,Core Concepts,2008,1.0958996493121123
+working memory,Core Concepts,2009,1.8215201678712987
+working memory,Core Concepts,2010,2.21046198655519
+working memory,Core Concepts,2011,3.084263333144501
+working memory,Core Concepts,2012,1.716127925078758
+working memory,Core Concepts,2013,1.6694779139585623
+working memory,Core Concepts,2014,2.962304673035622
+working memory,Core Concepts,2015,2.2829002617182086
+working memory,Core Concepts,2016,2.293028152131995
+working memory,Core Concepts,2017,1.7821753945736323
+working memory,Core Concepts,2018,1.1585516559565001
+working memory,Core Concepts,2019,3.4779425224235765
+working memory,Core Concepts,2020,2.909739869255689
+working memory,Core Concepts,2021,3.039821663795724
+working memory,Core Concepts,2022,5.312367190820229
+working memory,Core Concepts,2023,1.5638942807466214
+working memory,Core Concepts,2024,3.544339689515843
+working memory,Core Concepts,2025,1.0954582301776834
+navigation,Core Concepts,2007,2.695303079738414
+navigation,Core Concepts,2008,2.276099271648233
+navigation,Core Concepts,2009,1.2750641175099091
+navigation,Core Concepts,2010,2.21046198655519
+navigation,Core Concepts,2011,1.8253803400242963
+navigation,Core Concepts,2012,5.270964341313328
+navigation,Core Concepts,2013,3.3965240318467305
+navigation,Core Concepts,2014,3.4912876503634114
+navigation,Core Concepts,2015,6.11491141531663
+navigation,Core Concepts,2016,2.814170913980176
+navigation,Core Concepts,2017,4.277220946976717
+navigation,Core Concepts,2018,2.4715768660405337
+navigation,Core Concepts,2019,3.4169259869424615
+navigation,Core Concepts,2020,1.4548699346278444
+navigation,Core Concepts,2021,2.139133763411806
+navigation,Core Concepts,2022,3.5415781272134863
+navigation,Core Concepts,2023,3.77174503003597
+navigation,Core Concepts,2024,11.696320975402282
+navigation,Core Concepts,2025,6.061535540316514
+compositionality,Core Concepts,2007,0.0
+compositionality,Core Concepts,2008,0.16859994604801726
+compositionality,Core Concepts,2009,0.14572161342970388
+compositionality,Core Concepts,2010,0.2600543513594341
+compositionality,Core Concepts,2011,0.0
+compositionality,Core Concepts,2012,0.0
+compositionality,Core Concepts,2013,0.1151364078592112
+compositionality,Core Concepts,2014,0.0
+compositionality,Core Concepts,2015,0.0
+compositionality,Core Concepts,2016,0.20845710473927226
+compositionality,Core Concepts,2017,0.0
+compositionality,Core Concepts,2018,0.0
+compositionality,Core Concepts,2019,0.0
+compositionality,Core Concepts,2020,0.38796531590075845
+compositionality,Core Concepts,2021,0.0
+compositionality,Core Concepts,2022,0.0
+compositionality,Core Concepts,2023,0.09199378122038951
+compositionality,Core Concepts,2024,0.0
+compositionality,Core Concepts,2025,0.0
+optogenetics,Experimental Tech,2007,0.0
+optogenetics,Experimental Tech,2008,0.0
+optogenetics,Experimental Tech,2009,0.14572161342970388
+optogenetics,Experimental Tech,2010,0.2600543513594341
+optogenetics,Experimental Tech,2011,0.4406090475920716
+optogenetics,Experimental Tech,2012,0.735483396462325
+optogenetics,Experimental Tech,2013,0.4029774275072392
+optogenetics,Experimental Tech,2014,1.9043387183800424
+optogenetics,Experimental Tech,2015,1.6306430440844348
+optogenetics,Experimental Tech,2016,3.439542228197993
+optogenetics,Experimental Tech,2017,0.5702961262635623
+optogenetics,Experimental Tech,2018,0.9268413247652002
+optogenetics,Experimental Tech,2019,2.623711025687961
+optogenetics,Experimental Tech,2020,1.6488525925782236
+optogenetics,Experimental Tech,2021,1.9139617883158264
+optogenetics,Experimental Tech,2022,0.7083156254426972
+optogenetics,Experimental Tech,2023,3.311776123934022
+optogenetics,Experimental Tech,2024,0.8860849223789607
+optogenetics,Experimental Tech,2025,1.31454987621322
+Neuropixels,Experimental Tech,2007,0.0
+Neuropixels,Experimental Tech,2008,0.0
+Neuropixels,Experimental Tech,2009,0.0
+Neuropixels,Experimental Tech,2010,0.0
+Neuropixels,Experimental Tech,2011,0.0
+Neuropixels,Experimental Tech,2012,0.0
+Neuropixels,Experimental Tech,2013,0.0
+Neuropixels,Experimental Tech,2014,0.0
+Neuropixels,Experimental Tech,2015,0.0
+Neuropixels,Experimental Tech,2016,0.0
+Neuropixels,Experimental Tech,2017,0.0
+Neuropixels,Experimental Tech,2018,0.6178942165101334
+Neuropixels,Experimental Tech,2019,0.5491488193300385
+Neuropixels,Experimental Tech,2020,0.0
+Neuropixels,Experimental Tech,2021,0.0
+Neuropixels,Experimental Tech,2022,0.3541578127213486
+Neuropixels,Experimental Tech,2023,0.36797512488155804
+Neuropixels,Experimental Tech,2024,1.240518891330545
+Neuropixels,Experimental Tech,2025,0.5112138407495855
+calcium imaging,Experimental Tech,2007,0.0
+calcium imaging,Experimental Tech,2008,0.0
+calcium imaging,Experimental Tech,2009,0.21858242014455584
+calcium imaging,Experimental Tech,2010,0.13002717567971706
+calcium imaging,Experimental Tech,2011,0.18883244896803067
+calcium imaging,Experimental Tech,2012,0.3677416982311625
+calcium imaging,Experimental Tech,2013,0.3454092235776336
+calcium imaging,Experimental Tech,2014,0.42318638186223173
+calcium imaging,Experimental Tech,2015,0.4076607610211087
+calcium imaging,Experimental Tech,2016,0.4169142094785445
+calcium imaging,Experimental Tech,2017,0.499009110480617
+calcium imaging,Experimental Tech,2018,3.2439446366782003
+calcium imaging,Experimental Tech,2019,0.7932149612545001
+calcium imaging,Experimental Tech,2020,2.327791895404551
+calcium imaging,Experimental Tech,2021,0.4503439501919591
+calcium imaging,Experimental Tech,2022,1.062473438164046
+calcium imaging,Experimental Tech,2023,1.8398756244077898
+calcium imaging,Experimental Tech,2024,1.4177358758063374
+calcium imaging,Experimental Tech,2025,1.1684887788561955
+connectomics,Experimental Tech,2007,0.14185805682833758
+connectomics,Experimental Tech,2008,0.08429997302400863
+connectomics,Experimental Tech,2009,0.0
+connectomics,Experimental Tech,2010,0.6501358783985853
+connectomics,Experimental Tech,2011,0.5035531972480818
+connectomics,Experimental Tech,2012,0.49032226430821657
+connectomics,Experimental Tech,2013,1.2089322825217175
+connectomics,Experimental Tech,2014,0.10579659546555793
+connectomics,Experimental Tech,2015,1.8752395006970999
+connectomics,Experimental Tech,2016,3.960684990046173
+connectomics,Experimental Tech,2017,4.134646915410827
+connectomics,Experimental Tech,2018,2.7805239742956007
+connectomics,Experimental Tech,2019,3.9050582707913843
+connectomics,Experimental Tech,2020,3.297705185156447
+connectomics,Experimental Tech,2021,4.165681539275622
+connectomics,Experimental Tech,2022,5.312367190820229
+connectomics,Experimental Tech,2023,5.059657967121423
+connectomics,Experimental Tech,2024,3.3671227050400514
+connectomics,Experimental Tech,2025,5.8424438942809775
+fMRI,Experimental Tech,2007,1.4185805682833759
+fMRI,Experimental Tech,2008,0.7586997572160777
+fMRI,Experimental Tech,2009,1.7122289577990208
+fMRI,Experimental Tech,2010,1.0402174054377364
+fMRI,Experimental Tech,2011,2.643654285552429
+fMRI,Experimental Tech,2012,6.987092266392087
+fMRI,Experimental Tech,2013,2.130023545395407
+fMRI,Experimental Tech,2014,2.856508077570064
+fMRI,Experimental Tech,2015,2.3644324139224304
+fMRI,Experimental Tech,2016,6.045256037438896
+fMRI,Experimental Tech,2017,3.493063773364319
+fMRI,Experimental Tech,2018,1.5447355412753339
+fMRI,Experimental Tech,2019,2.5626944902068463
+fMRI,Experimental Tech,2020,3.9766444879827745
+fMRI,Experimental Tech,2021,5.5167133898515
+fMRI,Experimental Tech,2022,10.093497662558436
+fMRI,Experimental Tech,2023,3.6797512488155797
+fMRI,Experimental Tech,2024,2.6582547671368824
+fMRI,Experimental Tech,2025,4.454863469389245
+mouse,Model Systems,2007,1.986012795596726
+mouse,Model Systems,2008,0.3371998920960345
+mouse,Model Systems,2009,0.9107600839356493
+mouse,Model Systems,2010,1.3002717567971707
+mouse,Model Systems,2011,1.3847712924322249
+mouse,Model Systems,2012,2.2064501893869743
+mouse,Model Systems,2013,2.7632737886210688
+mouse,Model Systems,2014,2.53911829117339
+mouse,Model Systems,2015,3.179753935964648
+mouse,Model Systems,2016,5.836798932699624
+mouse,Model Systems,2017,7.485136657209256
+mouse,Model Systems,2018,11.739990113692537
+mouse,Model Systems,2019,5.796570870705961
+mouse,Model Systems,2020,6.595410370312894
+mouse,Model Systems,2021,3.2649936388917036
+mouse,Model Systems,2022,9.03102422439439
+mouse,Model Systems,2023,5.61162065444376
+mouse,Model Systems,2024,7.620330332459063
+mouse,Model Systems,2025,7.522146513886759
+primate,Model Systems,2007,3.4045933638801014
+primate,Model Systems,2008,3.456298893984354
+primate,Model Systems,2009,4.663091629750524
+primate,Model Systems,2010,1.5603261081566047
+primate,Model Systems,2011,2.517765986240409
+primate,Model Systems,2012,3.309675284080462
+primate,Model Systems,2013,4.144910682931603
+primate,Model Systems,2014,4.020270627691201
+primate,Model Systems,2015,3.0982217837604256
+primate,Model Systems,2016,4.169142094785445
+primate,Model Systems,2017,2.851480631317812
+primate,Model Systems,2018,5.174864063272368
+primate,Model Systems,2019,3.2338763804991153
+primate,Model Systems,2020,4.461601132858722
+primate,Model Systems,2021,4.84119746456356
+primate,Model Systems,2022,2.6561835954101145
+primate,Model Systems,2023,4.5996890610194745
+primate,Model Systems,2024,3.0126887360884664
+primate,Model Systems,2025,3.6515274339256107
+Drosophila,Model Systems,2007,0.28371611365667515
+Drosophila,Model Systems,2008,0.0
+Drosophila,Model Systems,2009,0.5464560503613897
+Drosophila,Model Systems,2010,1.8203804595160389
+Drosophila,Model Systems,2011,0.8812180951841432
+Drosophila,Model Systems,2012,3.309675284080462
+Drosophila,Model Systems,2013,1.0362276707329008
+Drosophila,Model Systems,2014,0.7405761682589055
+Drosophila,Model Systems,2015,0.9783858264506609
+Drosophila,Model Systems,2016,1.0422855236963613
+Drosophila,Model Systems,2017,1.7821753945736323
+Drosophila,Model Systems,2018,1.2357884330202669
+Drosophila,Model Systems,2019,1.7694795289523462
+Drosophila,Model Systems,2020,2.7157572113053092
+Drosophila,Model Systems,2021,1.463617838123867
+Drosophila,Model Systems,2022,0.8853945318033716
+Drosophila,Model Systems,2023,0.6439564685427266
+Drosophila,Model Systems,2024,2.835471751612675
+Drosophila,Model Systems,2025,1.679702619605781
+behavior,Model Systems,2007,20.99499241059396
+behavior,Model Systems,2008,10.958996493121122
+behavior,Model Systems,2009,13.807122872464443
+behavior,Model Systems,2010,15.603261081566046
+behavior,Model Systems,2011,22.156340678915598
+behavior,Model Systems,2012,23.780629818948505
+behavior,Model Systems,2013,22.10619030896855
+behavior,Model Systems,2014,17.3506416563515
+behavior,Model Systems,2015,15.654173223210574
+behavior,Model Systems,2016,20.949939026296864
+behavior,Model Systems,2017,18.891059182480504
+behavior,Model Systems,2018,18.459589718240238
+behavior,Model Systems,2019,19.58630788943804
+behavior,Model Systems,2020,19.49525712401311
+behavior,Model Systems,2021,24.656331273009762
+behavior,Model Systems,2022,20.718232044198896
+behavior,Model Systems,2023,26.310221429031397
+behavior,Model Systems,2024,19.139434323385554
+behavior,Model Systems,2025,21.544011860161106
+interpretability,Emerging Topics,2007,0.0
+interpretability,Emerging Topics,2008,0.0
+interpretability,Emerging Topics,2009,0.03643040335742597
+interpretability,Emerging Topics,2010,0.0
+interpretability,Emerging Topics,2011,0.12588829931202045
+interpretability,Emerging Topics,2012,0.0
+interpretability,Emerging Topics,2013,0.0
+interpretability,Emerging Topics,2014,0.10579659546555793
+interpretability,Emerging Topics,2015,0.0
+interpretability,Emerging Topics,2016,0.10422855236963613
+interpretability,Emerging Topics,2017,0.21386104734883588
+interpretability,Emerging Topics,2018,0.15447355412753336
+interpretability,Emerging Topics,2019,0.3660992128866923
+interpretability,Emerging Topics,2020,0.38796531590075845
+interpretability,Emerging Topics,2021,0.9006879003839182
+interpretability,Emerging Topics,2022,1.062473438164046
+interpretability,Emerging Topics,2023,0.6439564685427266
+interpretability,Emerging Topics,2024,2.126603813709506
+interpretability,Emerging Topics,2025,1.8257637169628054
+neuromodulation,Emerging Topics,2007,10.071922034811967
+neuromodulation,Emerging Topics,2008,6.069598057728622
+neuromodulation,Emerging Topics,2009,6.266029377477268
+neuromodulation,Emerging Topics,2010,5.591168554227834
+neuromodulation,Emerging Topics,2011,2.517765986240409
+neuromodulation,Emerging Topics,2012,8.458059059316735
+neuromodulation,Emerging Topics,2013,5.353842965453321
+neuromodulation,Emerging Topics,2014,3.2796944594322954
+neuromodulation,Emerging Topics,2015,2.853625327147761
+neuromodulation,Emerging Topics,2016,1.7718853902838145
+neuromodulation,Emerging Topics,2017,3.421776757581374
+neuromodulation,Emerging Topics,2018,4.402496292634701
+neuromodulation,Emerging Topics,2019,3.9050582707913843
+neuromodulation,Emerging Topics,2020,4.364609803883533
+neuromodulation,Emerging Topics,2021,4.390853514371601
+neuromodulation,Emerging Topics,2022,7.437314067148321
+neuromodulation,Emerging Topics,2023,4.139720154917527
+neuromodulation,Emerging Topics,2024,2.835471751612675
+neuromodulation,Emerging Topics,2025,7.960329805957832
+dendritic,Emerging Topics,2007,19.008979614997234
+dendritic,Emerging Topics,2008,13.993795521985433
+dendritic,Emerging Topics,2009,11.839881091163441
+dendritic,Emerging Topics,2010,13.002717567971708
+dendritic,Emerging Topics,2011,12.588829931202044
+dendritic,Emerging Topics,2012,6.251608869929762
+dendritic,Emerging Topics,2013,6.793048063693461
+dendritic,Emerging Topics,2014,8.14633785084796
+dendritic,Emerging Topics,2015,14.757319548964134
+dendritic,Emerging Topics,2016,8.963655503788708
+dendritic,Emerging Topics,2017,8.554441893953435
+dendritic,Emerging Topics,2018,8.032624814631735
+dendritic,Emerging Topics,2019,10.494844102751845
+dendritic,Emerging Topics,2020,6.983375686213652
+dendritic,Emerging Topics,2021,11.371184742346967
+dendritic,Emerging Topics,2022,0.8853945318033716
+dendritic,Emerging Topics,2023,6.255577122986486
+dendritic,Emerging Topics,2024,8.860849223789609
+dendritic,Emerging Topics,2025,10.443368461027248
+naturalistic,Emerging Topics,2007,0.42557417048501267
+naturalistic,Emerging Topics,2008,0.5057998381440518
+naturalistic,Emerging Topics,2009,1.1293425040802052
+naturalistic,Emerging Topics,2010,0.5201087027188682
+naturalistic,Emerging Topics,2011,0.5035531972480818
+naturalistic,Emerging Topics,2012,5.148383775236273
+naturalistic,Emerging Topics,2013,0.8059548550144784
+naturalistic,Emerging Topics,2014,0.42318638186223173
+naturalistic,Emerging Topics,2015,0.4076607610211087
+naturalistic,Emerging Topics,2016,0.6253713142178169
+naturalistic,Emerging Topics,2017,1.0693052367441793
+naturalistic,Emerging Topics,2018,1.930919426594167
+naturalistic,Emerging Topics,2019,0.30508267740557693
+naturalistic,Emerging Topics,2020,0.7759306318015169
+naturalistic,Emerging Topics,2021,0.6755159252879387
+naturalistic,Emerging Topics,2022,0.7083156254426972
+naturalistic,Emerging Topics,2023,0.36797512488155804
+naturalistic,Emerging Topics,2024,0.17721698447579218
+naturalistic,Emerging Topics,2025,1.1684887788561955
+sequence,Emerging Topics,2007,7.234760898245216
+sequence,Emerging Topics,2008,4.805098462368492
+sequence,Emerging Topics,2009,4.335217999533691
+sequence,Emerging Topics,2010,7.54157618942359
+sequence,Emerging Topics,2011,5.790861768352941
+sequence,Emerging Topics,2012,6.987092266392087
+sequence,Emerging Topics,2013,8.520094181581628
+sequence,Emerging Topics,2014,7.299965087123496
+sequence,Emerging Topics,2015,9.050068894668613
+sequence,Emerging Topics,2016,3.439542228197993
+sequence,Emerging Topics,2017,11.97621865153481
+sequence,Emerging Topics,2018,7.491967375185369
+sequence,Emerging Topics,2019,9.335529928610653
+sequence,Emerging Topics,2020,7.080367015188842
+sequence,Emerging Topics,2021,11.708942704990935
+sequence,Emerging Topics,2022,12.218444538886526
+sequence,Emerging Topics,2023,10.303303496683625
+sequence,Emerging Topics,2024,6.55702842560431
+sequence,Emerging Topics,2025,6.645779929744612
+embodiment,Emerging Topics,2007,0.42557417048501267
+embodiment,Emerging Topics,2008,0.8429997302400863
+embodiment,Emerging Topics,2009,1.311494520867335
+embodiment,Emerging Topics,2010,0.9101902297580194
+embodiment,Emerging Topics,2011,0.8812180951841432
+embodiment,Emerging Topics,2012,0.735483396462325
+embodiment,Emerging Topics,2013,0.575682039296056
+embodiment,Emerging Topics,2014,0.31738978639667376
+embodiment,Emerging Topics,2015,0.4076607610211087
+embodiment,Emerging Topics,2016,0.6253713142178169
+embodiment,Emerging Topics,2017,0.7841571736123982
+embodiment,Emerging Topics,2018,0.6178942165101334
+embodiment,Emerging Topics,2019,1.4643968515467691
+embodiment,Emerging Topics,2020,0.7759306318015169
+embodiment,Emerging Topics,2021,0.33775796264396934
+embodiment,Emerging Topics,2022,1.9478679699674175
+embodiment,Emerging Topics,2023,0.8279440309835056
+embodiment,Emerging Topics,2024,1.063301906854753
+embodiment,Emerging Topics,2025,0.7303054867851222
+visual,Sensory & Brain,2007,4.823173932163478
+visual,Sensory & Brain,2008,3.034799028864311
+visual,Sensory & Brain,2009,6.812485427838657
+visual,Sensory & Brain,2010,3.250679391992927
+visual,Sensory & Brain,2011,3.9654814283286437
+visual,Sensory & Brain,2012,1.9612890572328663
+visual,Sensory & Brain,2013,3.7419332554243643
+visual,Sensory & Brain,2014,3.2796944594322954
+visual,Sensory & Brain,2015,3.5874146969857565
+visual,Sensory & Brain,2016,5.5241132755907145
+visual,Sensory & Brain,2017,3.9207858680619916
+visual,Sensory & Brain,2018,7.183020266930302
+visual,Sensory & Brain,2019,5.1253889804136925
+visual,Sensory & Brain,2020,4.655583790809102
+visual,Sensory & Brain,2021,1.6887898132198464
+visual,Sensory & Brain,2022,4.6040515653775325
+visual,Sensory & Brain,2023,5.979595779325318
+visual,Sensory & Brain,2024,5.139292549797973
+visual,Sensory & Brain,2025,2.994252495819001
+auditory,Sensory & Brain,2007,0.8511483409700253
+auditory,Sensory & Brain,2008,0.9272997032640949
+auditory,Sensory & Brain,2009,1.3479249242247608
+auditory,Sensory & Brain,2010,1.9504076351957558
+auditory,Sensory & Brain,2011,1.7624361903682864
+auditory,Sensory & Brain,2012,1.593547359001704
+auditory,Sensory & Brain,2013,1.0937958746625063
+auditory,Sensory & Brain,2014,1.692745527448927
+auditory,Sensory & Brain,2015,1.9567716529013217
+auditory,Sensory & Brain,2016,1.3549711808052698
+auditory,Sensory & Brain,2017,1.1405922525271246
+auditory,Sensory & Brain,2018,1.699209095402867
+auditory,Sensory & Brain,2019,0.7932149612545001
+auditory,Sensory & Brain,2020,0.7759306318015169
+auditory,Sensory & Brain,2021,1.9139617883158264
+auditory,Sensory & Brain,2022,0.7083156254426972
+auditory,Sensory & Brain,2023,0.7359502497631161
+auditory,Sensory & Brain,2024,2.303820798185298
+auditory,Sensory & Brain,2025,0.5112138407495855
+spiking,Sensory & Brain,2007,14.185805682833756
+spiking,Sensory & Brain,2008,9.27299703264095
+spiking,Sensory & Brain,2009,14.09856609932385
+spiking,Sensory & Brain,2010,17.68369589244152
+spiking,Sensory & Brain,2011,12.903550679482095
+spiking,Sensory & Brain,2012,7.845156228931465
+spiking,Sensory & Brain,2013,15.600983264923117
+spiking,Sensory & Brain,2014,11.426032310280256
+spiking,Sensory & Brain,2015,13.045144352675479
+spiking,Sensory & Brain,2016,9.589026818006525
+spiking,Sensory & Brain,2017,5.702961262635624
+spiking,Sensory & Brain,2018,5.020390509144835
+spiking,Sensory & Brain,2019,8.17621575446946
+spiking,Sensory & Brain,2020,5.1405404356850495
+spiking,Sensory & Brain,2021,4.728611477015571
+spiking,Sensory & Brain,2022,3.364499220852812
+spiking,Sensory & Brain,2023,7.175514935190381
+spiking,Sensory & Brain,2024,4.607641596370596
+spiking,Sensory & Brain,2025,6.207596637673539
+inhibition,Core Concepts,2007,29.506475820294213
+inhibition,Core Concepts,2008,20.063393579714052
+inhibition,Core Concepts,2009,19.6359874096526
+inhibition,Core Concepts,2010,29.386141703616055
+inhibition,Core Concepts,2011,24.233497617563938
+inhibition,Core Concepts,2012,33.219333406881674
+inhibition,Core Concepts,2013,31.720080365212688
+inhibition,Core Concepts,2014,32.58535140339184
+inhibition,Core Concepts,2015,30.08536416335782
+inhibition,Core Concepts,2016,24.910624016343036
+inhibition,Core Concepts,2017,28.514806313178116
+inhibition,Core Concepts,2018,22.012481463173504
+inhibition,Core Concepts,2019,28.982854353529806
+inhibition,Core Concepts,2020,24.344823572772594
+inhibition,Core Concepts,2021,25.66960516094167
+inhibition,Core Concepts,2022,19.3016007933135
+inhibition,Core Concepts,2023,18.03078111919634
+inhibition,Core Concepts,2024,28.00028354717516
+inhibition,Core Concepts,2025,22.34734789562474
+adaptation,Core Concepts,2007,6.0998964436185155
+adaptation,Core Concepts,2008,3.456298893984354
+adaptation,Core Concepts,2009,4.663091629750524
+adaptation,Core Concepts,2010,7.021467486704721
+adaptation,Core Concepts,2011,6.797968162849104
+adaptation,Core Concepts,2012,3.7999975483886783
+adaptation,Core Concepts,2013,6.102229616538194
+adaptation,Core Concepts,2014,3.0681012685011795
+adaptation,Core Concepts,2015,8.316279524830616
+adaptation,Core Concepts,2016,7.921369980092346
+adaptation,Core Concepts,2017,6.772266499379803
+adaptation,Core Concepts,2018,8.341571922886802
+adaptation,Core Concepts,2019,5.186405515894807
+adaptation,Core Concepts,2020,5.4315144226106185
+adaptation,Core Concepts,2021,4.053095551727632
+adaptation,Core Concepts,2022,2.4791046890494406
+adaptation,Core Concepts,2023,6.807539810308823
+adaptation,Core Concepts,2024,12.050754944353866
+adaptation,Core Concepts,2025,5.696382796923953
+noise,Core Concepts,2007,6.667328670931866
+noise,Core Concepts,2008,6.5753978958726735
+noise,Core Concepts,2009,5.3188388901841925
+noise,Core Concepts,2010,5.331114202868399
+noise,Core Concepts,2011,4.531978775232735
+noise,Core Concepts,2012,6.741931134237978
+noise,Core Concepts,2013,4.375183498650025
+noise,Core Concepts,2014,7.723151468985728
+noise,Core Concepts,2015,6.033379263112408
+noise,Core Concepts,2016,5.002970513742535
+noise,Core Concepts,2017,3.778211836496101
+noise,Core Concepts,2018,4.479733069698468
+noise,Core Concepts,2019,4.942339373970346
+noise,Core Concepts,2020,2.7157572113053092
+noise,Core Concepts,2021,3.7153375890836626
+noise,Core Concepts,2022,1.9478679699674175
+noise,Core Concepts,2023,2.9438009990524643
+noise,Core Concepts,2024,2.835471751612675
+noise,Core Concepts,2025,2.9212219471404888
+encoding/decoding,Core Concepts,2007,1.1348644546267006
+encoding/decoding,Core Concepts,2008,0.5057998381440518
+encoding/decoding,Core Concepts,2009,1.566507344369317
+encoding/decoding,Core Concepts,2010,1.3002717567971707
+encoding/decoding,Core Concepts,2011,1.4477154420882352
+encoding/decoding,Core Concepts,2012,1.8387084911558123
+encoding/decoding,Core Concepts,2013,0.8059548550144784
+encoding/decoding,Core Concepts,2014,1.7985421229144847
+encoding/decoding,Core Concepts,2015,1.0599179786548827
+encoding/decoding,Core Concepts,2016,0.833828418957089
+encoding/decoding,Core Concepts,2017,0.9267312051782888
+encoding/decoding,Core Concepts,2018,0.5406574394463668
+encoding/decoding,Core Concepts,2019,1.5254133870278845
+encoding/decoding,Core Concepts,2020,0.7759306318015169
+encoding/decoding,Core Concepts,2021,0.7881019128359285
+encoding/decoding,Core Concepts,2022,2.3020257826887662
+encoding/decoding,Core Concepts,2023,0.45996890610194746
+encoding/decoding,Core Concepts,2024,0.35443396895158436
+encoding/decoding,Core Concepts,2025,1.3875804248917323
+normalization,Core Concepts,2007,0.28371611365667515
+normalization,Core Concepts,2008,1.1801996223361209
+normalization,Core Concepts,2009,1.8943809745861506
+normalization,Core Concepts,2010,0.39008152703915117
+normalization,Core Concepts,2011,0.5035531972480818
+normalization,Core Concepts,2012,0.9806445286164331
+normalization,Core Concepts,2013,1.8997507296769847
+normalization,Core Concepts,2014,2.962304673035622
+normalization,Core Concepts,2015,1.1414501308591043
+normalization,Core Concepts,2016,0.729599866587453
+normalization,Core Concepts,2017,1.5683143472247965
+normalization,Core Concepts,2018,2.239866534849234
+normalization,Core Concepts,2019,2.5016779547257304
+normalization,Core Concepts,2020,1.3578786056526546
+normalization,Core Concepts,2021,1.463617838123867
+normalization,Core Concepts,2022,5.135288284459555
+normalization,Core Concepts,2023,0.551962687322337
+normalization,Core Concepts,2024,2.48103778266109
+normalization,Core Concepts,2025,0.5112138407495855
+sparse coding,Core Concepts,2007,0.28371611365667515
+sparse coding,Core Concepts,2008,0.08429997302400863
+sparse coding,Core Concepts,2009,1.0200512940079274
+sparse coding,Core Concepts,2010,2.860597864953775
+sparse coding,Core Concepts,2011,0.37766489793606134
+sparse coding,Core Concepts,2012,2.819353019772245
+sparse coding,Core Concepts,2013,1.727046117888168
+sparse coding,Core Concepts,2014,0.21159319093111587
+sparse coding,Core Concepts,2015,0.7337893698379956
+sparse coding,Core Concepts,2016,0.31268565710890844
+sparse coding,Core Concepts,2017,0.712870157829453
+sparse coding,Core Concepts,2018,2.162629757785467
+sparse coding,Core Concepts,2019,0.5491488193300385
+sparse coding,Core Concepts,2020,0.38796531590075845
+sparse coding,Core Concepts,2021,1.8013758007678364
+sparse coding,Core Concepts,2022,3.364499220852812
+sparse coding,Core Concepts,2023,1.9318694056281795
+sparse coding,Core Concepts,2024,1.7721698447579215
+sparse coding,Core Concepts,2025,0.8033360354636344
+feedforward,Core Concepts,2007,2.411586966081739
+feedforward,Core Concepts,2008,1.6859994604801727
+feedforward,Core Concepts,2009,2.1858242014455587
+feedforward,Core Concepts,2010,3.250679391992927
+feedforward,Core Concepts,2011,3.0213191834884907
+feedforward,Core Concepts,2012,2.451611321541083
+feedforward,Core Concepts,2013,3.3389558279171245
+feedforward,Core Concepts,2014,2.856508077570064
+feedforward,Core Concepts,2015,2.038303805105543
+feedforward,Core Concepts,2016,2.605713809240904
+feedforward,Core Concepts,2017,2.9940546628837024
+feedforward,Core Concepts,2018,3.166707859614434
+feedforward,Core Concepts,2019,2.8067606321313074
+feedforward,Core Concepts,2020,1.1638959477022754
+feedforward,Core Concepts,2021,3.7153375890836626
+feedforward,Core Concepts,2022,1.4166312508853944
+feedforward,Core Concepts,2023,3.5877574675951904
+feedforward,Core Concepts,2024,1.9493868292337138
+feedforward,Core Concepts,2025,2.556069203747928
+hierarchy,Core Concepts,2007,0.8511483409700253
+hierarchy,Core Concepts,2008,0.9272997032640949
+hierarchy,Core Concepts,2009,2.1493937980881324
+hierarchy,Core Concepts,2010,1.0402174054377364
+hierarchy,Core Concepts,2011,2.5807101358964193
+hierarchy,Core Concepts,2012,2.2064501893869743
+hierarchy,Core Concepts,2013,1.2665004864513232
+hierarchy,Core Concepts,2014,2.115931909311158
+hierarchy,Core Concepts,2015,3.0982217837604256
+hierarchy,Core Concepts,2016,1.9803424950230866
+hierarchy,Core Concepts,2017,2.281184505054249
+hierarchy,Core Concepts,2018,2.6260504201680672
+hierarchy,Core Concepts,2019,3.050826774055769
+hierarchy,Core Concepts,2020,4.170627145933153
+hierarchy,Core Concepts,2021,2.814649688699744
+hierarchy,Core Concepts,2022,5.135288284459555
+hierarchy,Core Concepts,2023,2.207850749289348
+hierarchy,Core Concepts,2024,5.67094350322535
+hierarchy,Core Concepts,2025,4.162741274675197
+cortex,Sensory & Brain,2007,36.17380449122608
+cortex,Sensory & Brain,2008,23.856892365794444
+cortex,Sensory & Brain,2009,36.68541618092796
+cortex,Sensory & Brain,2010,25.095244906185393
+cortex,Sensory & Brain,2011,35.878165303925826
+cortex,Sensory & Brain,2012,21.32901849740742
+cortex,Sensory & Brain,2013,35.57715002849626
+cortex,Sensory & Brain,2014,34.701283312703
+cortex,Sensory & Brain,2015,32.28673227287181
+cortex,Sensory & Brain,2016,34.812336491458474
+cortex,Sensory & Brain,2017,33.79004548111607
+cortex,Sensory & Brain,2018,43.87048937221948
+cortex,Sensory & Brain,2019,39.17261577887608
+cortex,Sensory & Brain,2020,35.207852417993834
+cortex,Sensory & Brain,2021,33.77579626439694
+cortex,Sensory & Brain,2022,33.82207111488879
+cortex,Sensory & Brain,2023,44.89296523555008
+cortex,Sensory & Brain,2024,38.10165166229531
+cortex,Sensory & Brain,2025,31.622227577795794
+hippocampus,Sensory & Brain,2007,11.490502603095344
+hippocampus,Sensory & Brain,2008,7.924197464256812
+hippocampus,Sensory & Brain,2009,4.954534856609933
+hippocampus,Sensory & Brain,2010,9.101902297580194
+hippocampus,Sensory & Brain,2011,7.175633060785166
+hippocampus,Sensory & Brain,2012,6.0064477377756536
+hippocampus,Sensory & Brain,2013,5.066001945805293
+hippocampus,Sensory & Brain,2014,6.770982109795708
+hippocampus,Sensory & Brain,2015,8.642408133647503
+hippocampus,Sensory & Brain,2016,4.377599199524718
+hippocampus,Sensory & Brain,2017,4.562369010108498
+hippocampus,Sensory & Brain,2018,5.020390509144835
+hippocampus,Sensory & Brain,2019,7.383000793214961
+hippocampus,Sensory & Brain,2020,5.1405404356850495
+hippocampus,Sensory & Brain,2021,8.781707028743202
+hippocampus,Sensory & Brain,2022,3.895735939934835
+hippocampus,Sensory & Brain,2023,7.54349006007194
+hippocampus,Sensory & Brain,2024,5.67094350322535
+hippocampus,Sensory & Brain,2025,6.134566088995026
+prefrontal,Sensory & Brain,2007,2.1278708524250636
+prefrontal,Sensory & Brain,2008,1.601699487456164
+prefrontal,Sensory & Brain,2009,2.1858242014455587
+prefrontal,Sensory & Brain,2010,1.8203804595160389
+prefrontal,Sensory & Brain,2011,2.4548218365843986
+prefrontal,Sensory & Brain,2012,2.2064501893869743
+prefrontal,Sensory & Brain,2013,3.108683012198702
+prefrontal,Sensory & Brain,2014,3.914474032225643
+prefrontal,Sensory & Brain,2015,2.7720931749435387
+prefrontal,Sensory & Brain,2016,4.481827751894354
+prefrontal,Sensory & Brain,2017,3.992072883844936
+prefrontal,Sensory & Brain,2018,1.3902619871478004
+prefrontal,Sensory & Brain,2019,3.1728598450180003
+prefrontal,Sensory & Brain,2020,2.036817908478982
+prefrontal,Sensory & Brain,2021,3.490165613987683
+prefrontal,Sensory & Brain,2022,3.895735939934835
+prefrontal,Sensory & Brain,2023,3.2197823427136325
+prefrontal,Sensory & Brain,2024,1.5949528602821295
+prefrontal,Sensory & Brain,2025,2.62909975242644
+development,Emerging Topics,2007,7.092902841416878
+development,Emerging Topics,2008,2.107499325600216
+development,Emerging Topics,2009,5.646712520401025
+development,Emerging Topics,2010,4.680978324469814
+development,Emerging Topics,2011,5.035531972480818
+development,Emerging Topics,2012,3.432255850157516
+development,Emerging Topics,2013,3.9722060711427867
+development,Emerging Topics,2014,6.559388918864591
+development,Emerging Topics,2015,5.462654197682856
+development,Emerging Topics,2016,5.628341827960352
+development,Emerging Topics,2017,3.992072883844936
+development,Emerging Topics,2018,7.028546712802768
+development,Emerging Topics,2019,4.942339373970346
+development,Emerging Topics,2020,8.438245620841498
+development,Emerging Topics,2021,5.291541414755519
+development,Emerging Topics,2022,5.666525003541578
+development,Emerging Topics,2023,7.635483841292328
+development,Emerging Topics,2024,7.265896363507478
+development,Emerging Topics,2025,7.668207611243783
+evolution,Emerging Topics,2007,5.24874810264849
+evolution,Emerging Topics,2008,2.276099271648233
+evolution,Emerging Topics,2009,1.5300769410118908
+evolution,Emerging Topics,2010,3.770788094711795
+evolution,Emerging Topics,2011,4.028425577984654
+evolution,Emerging Topics,2012,3.432255850157516
+evolution,Emerging Topics,2013,4.375183498650025
+evolution,Emerging Topics,2014,3.0681012685011795
+evolution,Emerging Topics,2015,2.6090288705350955
+evolution,Emerging Topics,2016,1.459199733174906
+evolution,Emerging Topics,2017,3.207915710232538
+evolution,Emerging Topics,2018,3.630128521997034
+evolution,Emerging Topics,2019,2.1355787418390384
+evolution,Emerging Topics,2020,3.491687843106826
+evolution,Emerging Topics,2021,1.576203825671857
+evolution,Emerging Topics,2022,6.020682816262927
+evolution,Emerging Topics,2023,2.2998445305097373
+evolution,Emerging Topics,2024,2.6582547671368824
+evolution,Emerging Topics,2025,4.381832920710734

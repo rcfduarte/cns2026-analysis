@@ -46,6 +46,11 @@ def write_topic_outputs(model, docs: list[str], years: list[int], out_dir: Path)
     info = model.get_topic_info()
     info.to_csv(out_dir / "topic_catalogue.csv", index=False)
 
+    # per-document (year, topic) — the reliable basis for share-over-time
+    pd.DataFrame({"year": list(years), "topic": list(model.topics_)}).to_csv(
+        out_dir / "doc_topics.csv", index=False
+    )
+
     tot = topics_over_time(model, docs, years)
     tot.to_csv(out_dir / "topics_over_time.csv", index=False)
 
