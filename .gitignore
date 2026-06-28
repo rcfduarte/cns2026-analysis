@@ -47,8 +47,6 @@ secrets/
 .DS_Store
 Thumbs.db
 
-# Project data caches and corpus outputs
-data/raw/
-data/cache/
-data/corpus/
-data/corpus_*/
+# All data artifacts stay local — caches, the corpus, and especially the
+# paywalled Springer PDFs + their extracted text (free-to-read, NOT redistributable).
+data/
