@@ -145,6 +145,7 @@ def _starts_affiliation(t: str) -> bool:
 
 def _clean_authors(text: str) -> list[Author]:
     """Parse an author byline, tolerating spaced (Era C) and glued (Era B) sup markers."""
+    text = text.replace("\xad", "").replace("*", " ")  # soft hyphens + corresponding-author marks
     text = re.sub(r"\d+", " ", text)  # names carry no digits; drop superscript markers
     out = []
     for chunk in re.split(r"[,;]", text):
