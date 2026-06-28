@@ -95,10 +95,16 @@ tests/             pytest suite (fixture-based, offline)
   networks (C), title-vs-abstract robustness (D), CoSyNe×CNS contrast (E). Run via
   `scripts/run_{keyword_trends,topics,networks,contrast}.py`. Findings in
   [`docs/RESULTS.md`](docs/RESULTS.md).
-- **Plan 3 — publishing**: polished interactive charts (Datawrapper) + a public write-up.
+- **Plan 3 — publishing** ◑ — publication figure suite done (`scripts/run_all_figures.py` →
+  committed [`results/`](results/): 8 house-style figures + aggregate tables). Interactive
+  Datawrapper charts + public write-up still to come.
 
 Install analysis extras with `pip install -e ".[analysis,topics]"` (topics pulls the
-sentence-transformers/BERTopic stack).
+sentence-transformers/BERTopic stack). Regenerate everything:
+`python -m cns_scientometrics build --years 2007-2025 --out data/corpus` then the `scripts/run_*.py`.
+
+See committed results in [`results/`](results/) and the narrative in
+[`docs/RESULTS.md`](docs/RESULTS.md).
 
 ## Data ethics & licensing
 
