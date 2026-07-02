@@ -20,10 +20,21 @@ committed tables (no raw corpus required).
 | `fig5_globalization` | Distinct countries + geographic diversity (entropy), with trend fits |
 | `fig6_geography` | Author affiliations by country over time (top 6; host-city sensitive) |
 | `fig7_titles_lossy` | Title-only vs full-abstract trajectory correlation (titles are lossy) |
+| `fig8_keyword_cotrajectory_network` | Keyword co-trajectory graph + communities (terms that rose/fell together) |
+| `fig9_two_vocabularies_map` | CNS-vs-CoSyNe per-keyword intensity, log-log, with community signatures |
+| `fig10_specialization_overlap` | Scale-normalized specialization + vocabulary-overlap metrics |
 | `figS1_vocabulary_map` | Supplementary: every keyword × year, row-normalised, sorted by era |
 
+Figures 8–10 are built by `python scripts/keyword_networks.py` (committed data only).
 The original Plan-3 figures (`run_all_figures.py`, corpus-dependent) are archived under
 `figures/_source_v1/` for provenance.
+
+**Corpus-dependent figures** (run on a local clone with the raw corpus, then optionally
+`--export` the non-sensitive aggregates back here to regenerate):
+`scripts/affiliation_analysis.py` → top institutions, institution collaboration network,
+scale-normalized country shares; `scripts/keyword_networks.py --incidence <csv>` → true
+per-abstract keyword co-occurrence networks + CNS-vs-CoSyNe community comparison. See
+[`../docs/ANALYSIS_IDEAS.md`](../docs/ANALYSIS_IDEAS.md).
 
 ## Tables (`tables/`)
 
@@ -36,6 +47,7 @@ The original Plan-3 figures (`run_all_figures.py`, corpus-dependent) are archive
 | `recovered_internationalization.csv` | year × distinct countries × country entropy (bits) |
 | `recovered_countries_over_time.csv` | year × country × abstracts (top 8; recovered, smoothed) |
 | `recovered_robustness_hist.csv` | title-vs-full trajectory-correlation histogram bins |
+| `cotrajectory_communities.csv` | co-trajectory community membership + CoSyNe/CNS lean per community |
 
 `recovered_*.csv` are re-derivable via `python scripts/recover_tables_from_figures.py`
 (see [`../docs/VALIDATION.md`](../docs/VALIDATION.md) §4). Topic catalogue and per-doc

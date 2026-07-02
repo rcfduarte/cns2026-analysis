@@ -113,6 +113,55 @@ retains a distinct centre of gravity. The two meetings are not converging into o
 NeuroAI blob; they are specialising. CNS is where the mechanism lives; CoSyNe is where
 the behaviour lives.
 
+But *how much* do they actually overlap — and does the divergence survive once you
+correct for the fact that the two meetings simply talk at different volumes? Two
+representations sharpen the answer.
+
+First, the field's own internal structure. If you link every keyword to every other
+keyword whose year-by-year trajectory rose and fell in step with it, and then let a
+community-detection algorithm find the clusters, computational neuroscience organises
+itself into a handful of coherent families:
+
+![Keyword co-trajectory network](../results/figures/fig8_keyword_cotrajectory_network.png)
+
+*Terms that trended together, 2007–2025. Two things stand out. The large blue/red
+clusters at the bottom — `LLM`, `transformer`, `manifold`, `latent`, `Neuropixels`,
+`connectomics`, `deep learning`, `dimensionality` — are the modern "NeuroAI + geometry"
+families that all switched on together; on the shared axis they lean **CoSyNe**. The
+small purple and pink clusters — `plasticity`/`dendritic`/`hippocampus` and
+`spiking`/`noise` — are the classic biophysics families, and they lean **CNS**. The
+field's newest vocabulary and its oldest vocabulary form structurally distinct
+communities, and those communities have different homes.*
+
+Second, the overlap itself — measured properly. The raw-frequency view (above) is
+dominated by a few high-volume umbrella words. If instead I express each community's
+vocabulary as *shares of its own total* — taking scale out entirely — I can measure how
+much the two fields genuinely have in common, and which terms each one over-uses
+*relative to its own size*.
+
+![Scale-normalized specialization and overlap](../results/figures/fig10_specialization_overlap.png)
+
+*The two vocabularies are **broadly shared but distinctly weighted**: the cosine
+similarity of their keyword-share profiles is 0.90 and 78% of the total vocabulary
+"mass" is common ground — yet fewer than half of each community's top-15 terms are
+shared (Jaccard 0.43), and only 18 of 55 tracked terms sit in the neutral shared core.
+Taking scale out also **changes which terms define each community.** CoSyNe's
+proportional signatures are not the loudest words but the newest ones — `latent`,
+`calcium imaging`, `Neuropixels`, `self-supervised`, `compositionality`. CNS's are its
+mechanistic core — `oscillation`, `dendritic`, `connectomics`, `spiking`. The headline
+"behaviour vs biophysics" split is real, but the sharper, scale-free story is
+"emerging-methods community vs mechanism community."*
+
+A compact way to see the same thing per term is to plot every keyword by how intensely
+each meeting uses it:
+
+![One vocabulary, two dialects](../results/figures/fig9_two_vocabularies_map.png)
+
+*Points on the diagonal are shared; points above are CNS signatures (oscillation,
+inhibition, plasticity, dendritic, spiking), points below are CoSyNe signatures
+(behaviour, cortex, primate, mouse, decision). It's one vocabulary spoken in two
+dialects.*
+
 That specialisation shows up most clearly in how the two communities took to machine
 learning.
 

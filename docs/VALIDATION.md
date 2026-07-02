@@ -83,6 +83,27 @@ Net effect: `results/` is now **self-contained and reproducible** — anyone can
 regenerate every published figure from the committed tables with
 `python scripts/build_article_figures.py`, with no access to the private corpus.
 
+### 4b. Community structure (added — CoSyNe vs CNS)
+
+- **`scripts/keyword_networks.py`** (committed data): keyword **co-trajectory network**
+  with greedy-modularity communities (`fig8`); **two-vocabularies map** (`fig9`);
+  **scale-normalized specialization + overlap** (`fig10`). Overlap of the two
+  communities on scale-free vocabulary shares: cosine 0.90, shared mass 78%, top-15
+  Jaccard 0.43, 18/55 shared-core terms. Community membership dumped to
+  `results/tables/cotrajectory_communities.csv`. Also carries the **corpus** path: true
+  per-abstract co-occurrence networks + a partition co-membership Jaccard between CNS and
+  CoSyNe (`--incidence`/`--cosyne-incidence`).
+- **`scripts/affiliation_analysis.py`** (corpus): institution parsing, top institutions,
+  institution collaboration network + communities, and **scale-normalized** geography
+  (country *shares* per meeting, removing the meeting-size/host-city confound). `--export`
+  writes committable non-sensitive aggregates (`institution_stats`, `institution_edges`,
+  `country_year_totals`, `keyword_incidence_cns`) so these figures can be regenerated
+  here without shipping raw text. Verified end-to-end on a synthetic corpus.
+
+Both corpus paths are code-complete but await the private corpus (this environment has no
+NCBI access and the corpus is gitignored). A menu of further analyses is in
+[`ANALYSIS_IDEAS.md`](ANALYSIS_IDEAS.md).
+
 ## 5. Reproduce
 
 ```bash
