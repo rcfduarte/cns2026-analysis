@@ -225,7 +225,7 @@ def main():
         try:
             from scripts.keyword_networks import keyword_incidence  # `python -m scripts.…`
         except ModuleNotFoundError:
-            from keyword_networks import keyword_incidence          # `python scripts/…`
+            from keyword_networks import keyword_incidence  # `python scripts/…`
         keyword_incidence(corpus).to_csv(TB / "keyword_incidence_cns.csv", index=False)
         print("exported 4 aggregates to results/tables/: institution_stats.csv, "
               "institution_edges.csv, country_year_totals.csv, keyword_incidence_cns.csv")
