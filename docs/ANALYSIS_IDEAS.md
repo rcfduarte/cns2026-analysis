@@ -58,6 +58,14 @@ tagged by data readiness:
 10. **Topic × geography [corpus].** Which countries/institutions specialise in which
     BERTopic themes (e.g. is connectomics US-led, oscillations Europe-led?). A
     country × topic heatmap, row-normalized.
+10b. **CoSyNe geography, to close the US-vs-EU comparison [stretch].** CNS origins are
+    done (`fig14`: Europe bloc ~52% vs US ~36%, and the "CoSyNe is US / CNS is EU"
+    hypothesis holds for the CNS half). The CoSyNe half needs author affiliations, which
+    the project lacks (CoSyNe was ingested as keyword frequencies only). Acquire them by
+    parsing the CoSyNe abstract/program books (PDFs on cosyne.org, ~2004–present), then
+    feed a `country,abstracts` table to `geography_comparison.py --cosyne-countries` to
+    render the paired `fig15`. Structural prior: CoSyNe's main meeting is US-hosted almost
+    every year vs CNS's global rotation.
 
 ## D. Content & semantics
 11. **Embedding map of the two corpora [corpus].** Project CNS and CoSyNe abstracts into

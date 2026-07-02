@@ -23,9 +23,13 @@ committed tables (no raw corpus required).
 | `fig8_keyword_cotrajectory_network` | Keyword co-trajectory graph + communities (terms that rose/fell together) |
 | `fig9_two_vocabularies_map` | CNS-vs-CoSyNe per-keyword intensity, log-log, with community signatures |
 | `fig10_specialization_overlap` | Scale-normalized specialization + vocabulary-overlap metrics |
+| `fig14_cns_origin_regions` | CNS countries/regions of origin — Europe (bloc) vs US over time |
 | `figS1_vocabulary_map` | Supplementary: every keyword × year, row-normalised, sorted by era |
 
-Figures 8–10 are built by `python scripts/keyword_networks.py` (committed data only).
+Figures 8–10 are built by `python scripts/keyword_networks.py`; `fig14` by
+`python scripts/geography_comparison.py` (all committed data only). A CNS-vs-CoSyNe
+regional comparison (`fig15`) is coded but needs CoSyNe author-geography
+(`geography_comparison.py --cosyne-countries <csv>`).
 The original Plan-3 figures (`run_all_figures.py`, corpus-dependent) are archived under
 `figures/_source_v1/` for provenance.
 

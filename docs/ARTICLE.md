@@ -200,6 +200,29 @@ and 2018 line up with US-hosted meetings.* The raw counts fall for the US over t
 period partly because several early meetings were US-hosted; the more robust signal is
 the *broadening base* captured by the rising diversity in the previous figure.
 
+There's a sharper way to put this. The US is the single largest *country* at CNS — but
+Europe, taken as a bloc, is the largest *region*, and by a growing margin.
+
+![CNS origins by region](../results/figures/fig14_cns_origin_regions.png)
+
+*Among the eight leading origin countries, Europe (Germany, UK, France, Spain, Italy)
+accounts for ~52% of the work to North America's ~36% — a ratio of about 1.45×, and one
+that widens over time: Europe's share of the leading countries climbs from ~42% in 2007
+to ~63% by 2025 while North America's falls from ~48% to ~28%. (Smaller countries are
+omitted here; adding them would mostly reinforce Europe.) **CNS is, in origin, a
+European-anchored meeting.**
+
+This is the half of the "CoSyNe is US, CNS is EU" hypothesis that the data can settle
+directly — and it comes down on the hypothesis's side for CNS. The other half is harder:
+this project ingested CoSyNe only as *keyword frequencies*, with no author affiliations,
+so a like-for-like CoSyNe country breakdown isn't computable from the data in hand, and
+no published CoSyNe author-geography statistics turned up to cite. What can be said
+structurally is suggestive: CoSyNe's main meeting is held in the United States almost
+every year (with satellite workshops in Europe), whereas CNS deliberately rotates across
+continents — and, as the host-city spikes above show, where a meeting is held strongly
+shapes who attends. Measuring CoSyNe's geography properly would mean parsing its abstract
+books; the comparison figure is coded and waiting for that input (`fig15`).
+
 ---
 
 ## 5. A note on method — and why the full abstract matters
