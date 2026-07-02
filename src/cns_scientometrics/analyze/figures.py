@@ -78,8 +78,12 @@ def fig_aiml_rise(freqs: pd.DataFrame, out: Path):
         ax.plot(piv.columns, _smooth(piv.loc[kw]), label=kw, lw=2, color=PALETTE[i % len(PALETTE)])
     ax.set(xlabel="year", ylabel="mentions per 10k words", title="The AI/ML wave at CNS (2007–2025)")
     ax.legend(ncol=2, fontsize=8)
-    ax.annotate("LLMs appear\n(2023→)", xy=(2024, piv.loc["LLM", 2024]), xytext=(2019.5, piv.values.max() * 0.8),
-                fontsize=9, color=CONTRA, arrowprops=dict(arrowstyle="->", color=CONTRA))
+    if "LLM" in piv.index:  # guard: the LLM row/year may be absent for partial corpora
+        llm = piv.loc["LLM"].dropna()
+        if not llm.empty:
+            ax.annotate("LLMs appear\n(2023→)", xy=(llm.index[-1], llm.iloc[-1]),
+                        xytext=(2019.5, piv.values.max() * 0.8),
+                        fontsize=9, color=CONTRA, arrowprops=dict(arrowstyle="->", color=CONTRA))
     _save(fig, out / "fig1_aiml_rise.png")
 
 
