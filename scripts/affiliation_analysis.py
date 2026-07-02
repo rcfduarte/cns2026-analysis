@@ -222,10 +222,15 @@ def main():
         edges.to_csv(TB / "institution_edges.csv", index=False)
         cyt.to_csv(TB / "country_year_totals.csv", index=False)
         # per-abstract keyword incidence for co-occurrence networks (no text, shareable)
-        from scripts.keyword_networks import keyword_incidence  # type: ignore
+        try:
+            from scripts.keyword_networks import keyword_incidence  # `python -m scripts.…`
+        except ModuleNotFoundError:
+            from keyword_networks import keyword_incidence          # `python scripts/…`
         keyword_incidence(corpus).to_csv(TB / "keyword_incidence_cns.csv", index=False)
-        print("exported: institution_stats, institution_edges, country_year_totals, "
-              "keyword_incidence_cns")
+        print("exported 4 aggregates to results/tables/: institution_stats.csv, "
+              "institution_edges.csv, country_year_totals.csv, keyword_incidence_cns.csv")
+        print("-> commit & push these (they contain NO abstract text) and I'll build "
+              "the institution + co-occurrence figures here.")
 
 
 if __name__ == "__main__":
