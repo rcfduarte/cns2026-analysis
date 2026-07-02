@@ -95,9 +95,12 @@ tests/             pytest suite (fixture-based, offline)
   networks (C), title-vs-abstract robustness (D), CoSyNe×CNS contrast (E). Run via
   `scripts/run_{keyword_trends,topics,networks,contrast}.py`. Findings in
   [`docs/RESULTS.md`](docs/RESULTS.md).
-- **Plan 3 — publishing** ◑ — publication figure suite done (`scripts/run_all_figures.py` →
-  committed [`results/`](results/): 8 house-style figures + aggregate tables). Interactive
-  Datawrapper charts + public write-up still to come.
+- **Plan 3 — publishing** ✅ — editorial figure suite (`scripts/build_article_figures.py`)
+  + public write-up ([`docs/ARTICLE.md`](docs/ARTICLE.md)) + methods review
+  ([`docs/VALIDATION.md`](docs/VALIDATION.md)). The figure suite regenerates from the
+  committed aggregate tables alone (no raw corpus needed); recovered series come from
+  `scripts/recover_tables_from_figures.py`. Original corpus-dependent figures archived
+  under `results/figures/_source_v1/`.
 
 Install analysis extras with `pip install -e ".[analysis,topics]"` (topics pulls the
 sentence-transformers/BERTopic stack). Regenerate everything:
