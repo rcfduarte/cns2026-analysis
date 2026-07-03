@@ -48,9 +48,14 @@ _INST_HINTS = re.compile(
 _DROP = re.compile(r"\b(department|dept|division|faculty|school of|lab of|group|unit)\b", re.I)
 
 
+def _strip_footnote(seg: str) -> str:
+    """Drop a leading affiliation-footnote number glued to the name ("2Bernstein")."""
+    return re.sub(r"^\d{1,3}\s*", "", seg).strip()
+
+
 def institution_of(affiliation: str) -> str | None:
     """Best-effort canonical institution name from an affiliation string."""
-    segs = [s.strip() for s in re.split(r"[,;]", affiliation) if s.strip()]
+    segs = [_strip_footnote(s.strip()) for s in re.split(r"[,;]", affiliation) if s.strip()]
     cand = [s for s in segs if _INST_HINTS.search(s) and not _DROP.match(s)]
     if not cand:
         return None
@@ -146,26 +151,41 @@ def fig_institution_network(edges: pd.DataFrame, stats: pd.DataFrame, top: int =
     if g.number_of_nodes() == 0:
         print("institution network empty at this threshold; skipping")
         return
+    # keep the giant connected component: the scattered dyads otherwise blow up the
+    # spring-layout scale and collapse the backbone into an unreadable clump.
+    giant = max(nx.connected_components(g), key=len)
+    g = g.subgraph(giant).copy()
+
     comms = sorted(greedy_modularity_communities(g, weight="weight"), key=len, reverse=True)
     cof = {n: ci for ci, m in enumerate(comms) for n in m}
     cnt = {r["institution"]: r["n_abstracts"] for _, r in stats.iterrows()}
-    pos = nx.spring_layout(g, weight="weight", seed=11, k=0.5, iterations=300)
+    try:
+        pos = nx.kamada_kawai_layout(g, weight="weight")  # spreads ~40 nodes cleanly
+    except Exception:
+        pos = nx.spring_layout(g, weight="weight", seed=11, k=1.3, iterations=400)
     fig, ax = plt.subplots(figsize=(14, 12))
     fig.subplots_adjust(top=0.92, bottom=0.03, left=0.03, right=0.97)
     ax.axis("off")
     for u, v, d in g.edges(data=True):
         ax.plot([pos[u][0], pos[v][0]], [pos[u][1], pos[v][1]], color="#cfcfca",
-                lw=0.3 + 0.5 * d["weight"], alpha=0.4, zorder=1)
+                lw=0.3 + 0.5 * d["weight"], alpha=0.45, zorder=1)
     sz = np.array([cnt.get(n, 1) for n in g.nodes], float)
-    for n, s in zip(g.nodes, 60 + 700 * np.sqrt(sz / sz.max()), strict=False):
+    for n, s in zip(g.nodes, 90 + 700 * np.sqrt(sz / sz.max()), strict=False):
         ax.scatter(*pos[n], s=s, color=COMM[cof[n] % len(COMM)], edgecolors="white",
                    linewidths=1.1, zorder=2)
-    big = sorted(g.nodes, key=lambda n: -cnt.get(n, 0))[:28]  # label only the hubs
+    # label the hubs, offset above the node with a soft halo (matches fig8 style)
+    ys = np.array([pos[n][1] for n in g.nodes])
+    yoff = (ys.max() - ys.min()) * 0.022
+    big = sorted(g.nodes, key=lambda n: -cnt.get(n, 0))[:20]  # label only the hubs
     for n in big:
-        ax.annotate(n[:26], (pos[n][0], pos[n][1]), fontsize=7.6, ha="center", va="center",
-                    zorder=3, bbox=dict(boxstyle="round,pad=0.1", fc="white", ec="none", alpha=0.6))
-    _titlebox(fig, "The collaboration backbone", "Institutions linked when they co-author abstracts; "
-              "colour = collaboration community, size = output (top hubs labelled)", y=0.975)
+        ax.annotate(n[:28], (pos[n][0], pos[n][1] + yoff), fontsize=7.8, ha="center",
+                    va="bottom", zorder=4, color=INK,
+                    bbox=dict(boxstyle="round,pad=0.12", fc="white", ec="none", alpha=0.65))
+    _titlebox(fig, "The collaboration backbone", "Institutions that co-author abstracts (largest "
+              "connected component); colour = collaboration community, size = output (top hubs labelled)",
+              y=0.975)
+    fig.text(0.045, 0.012, "Source: CNS abstracts · institution co-authorship (edge weight ≥ 2)",
+             fontsize=9, color=MUTED)
     fig.savefig(FG / "fig12_institution_network.png", bbox_inches="tight")
     fig.savefig(FG / "fig12_institution_network.svg", bbox_inches="tight")
     plt.close(fig)

@@ -26,12 +26,20 @@ SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8a86"
 EUROPE, NAM, APAC = "#2a78d6", "#eb6834", "#1baf7a"
 
 REGION = {
-    "United States": "North America", "Canada": "North America",
+    # North America
+    "United States": "North America", "Canada": "North America", "Mexico": "North America",
+    # Europe
     "Germany": "Europe", "United Kingdom": "Europe", "France": "Europe",
     "Spain": "Europe", "Italy": "Europe", "Netherlands": "Europe",
     "Switzerland": "Europe", "Sweden": "Europe", "Austria": "Europe",
+    "Portugal": "Europe", "Belgium": "Europe", "Norway": "Europe",
+    "Finland": "Europe", "Denmark": "Europe", "Hungary": "Europe",
+    "Ireland": "Europe", "Slovenia": "Europe",
+    # Asia-Pacific
     "Japan": "Asia-Pacific", "Australia": "Asia-Pacific", "China": "Asia-Pacific",
-    "India": "Asia-Pacific", "South Korea": "Asia-Pacific",
+    "India": "Asia-Pacific", "South Korea": "Asia-Pacific", "Korea, Republic of": "Asia-Pacific",
+    "Singapore": "Asia-Pacific", "Hong Kong": "Asia-Pacific",
+    # Israel, Brazil, etc. fall through to "Other" (kept identical on both sides)
 }
 RCOLOR = {"Europe": EUROPE, "North America": NAM, "Asia-Pacific": APAC, "Other": MUTED}
 
@@ -121,9 +129,28 @@ def _regional_shares(country_abstracts: pd.Series) -> pd.Series:
     return (reg / reg.sum() * 100).reindex(["North America", "Europe", "Asia-Pacific", "Other"]).fillna(0)
 
 
+def _cns_country_series() -> tuple[pd.Series, str]:
+    """CNS country counts. Prefer the full-corpus institution parse (all countries,
+    directly comparable to the CoSyNe institution resolution); fall back to the
+    recovered top-8 origin countries if the full table is absent."""
+    full = TB / "country_year_totals.csv"
+    if full.exists():
+        import pycountry
+
+        def _name(iso):
+            c = pycountry.countries.get(alpha_2=iso)
+            return c.name if c else iso
+
+        s = pd.read_csv(full).groupby("country").abstracts.sum()
+        s.index = [_name(i) for i in s.index]
+        return s, "full corpus, all countries, 2007–2025"
+    s = pd.read_csv(TB / "recovered_countries_over_time.csv").groupby("country").abstracts_smoothed.sum()
+    return s, "top-8 origin countries, 2007–2025"
+
+
 def fig_region_comparison(cosyne_csv: Path):
     """Paired CNS-vs-CoSyNe regional composition. cosyne_csv: columns country, abstracts."""
-    cns = pd.read_csv(TB / "recovered_countries_over_time.csv").groupby("country").abstracts_smoothed.sum()
+    cns, cns_note = _cns_country_series()
     cos = pd.read_csv(cosyne_csv)
     ccol = "abstracts" if "abstracts" in cos.columns else cos.columns[1]
     cos = cos.set_index(cos.columns[0])[ccol]
@@ -141,9 +168,13 @@ def fig_region_comparison(cosyne_csv: Path):
     for xi, r in zip(x, regions, strict=False):
         ax.text(xi - 0.2, scns[r] + 1, f"{scns[r]:.0f}", ha="center", fontsize=9, color=INK2)
         ax.text(xi + 0.2, scos[r] + 1, f"{scos[r]:.0f}", ha="center", fontsize=9, color=INK2)
-    titlebox(fig, "Where the two communities come from",
-             "Regional composition of author affiliations: CNS vs CoSyNe")
-    source(fig, "Source: CNS abstracts 2007–2025 vs CoSyNe author affiliations")
+    na_gap = scos["North America"] - scns["North America"]
+    titlebox(fig, "CoSyNe leans North-American; CNS leans European",
+             f"Regional composition of author affiliations. CoSyNe is {scos['North America']:.0f}% "
+             f"North America vs CNS's {scns['North America']:.0f}% (+{na_gap:.0f} pts); "
+             f"CNS is {scns['Europe']:.0f}% Europe vs CoSyNe's {scos['Europe']:.0f}%.")
+    source(fig, f"Source: CNS ({cns_note}) vs CoSyNe (program books 2014–2026, "
+                "institution→country resolution) · country counted once per abstract")
     fig.savefig(FG / "fig15_cns_cosyne_geography.png", bbox_inches="tight")
     fig.savefig(FG / "fig15_cns_cosyne_geography.svg", bbox_inches="tight")
     plt.close(fig)
