@@ -317,10 +317,14 @@ be read as an index, not a literal count.
 Beneath the keyword counts, a data-driven topic model (BERTopic over sentence
 embeddings of every abstract) independently recovers ~38 coherent themes — visual
 cortex, decision/reward, functional connectivity, gamma synchronisation,
-seizure/epilepsy, cerebellar modelling, and more — and shows the same rotation: the
-functional-connectivity/fMRI theme rises across the period while the classic
-visual-cortex theme recedes from its early dominance. The keyword story isn't an
-artifact of the dictionary; the abstracts cluster that way on their own.
+seizure/epilepsy, cerebellar modelling, and more — and shows the same rotation:
+
+![Data-driven topics over time](../results/figures/fig5_topics_over_time.png)
+
+*Share of each year's abstracts assigned to the top BERTopic themes (3-yr smoothed). The
+functional-connectivity/fMRI theme rises across the period while the classic visual-cortex
+theme recedes from its early dominance.* The keyword story isn't an artifact of the
+dictionary; the abstracts cluster that way on their own.
 
 ---
 
@@ -346,10 +350,12 @@ affiliations at ~90% coverage; keyword frequencies follow the CoSyNe taxonomy fo
 comparability. The CoSyNe comparison now runs on three shared rulers — keyword intensity,
 per-abstract keyword co-occurrence, and institution-resolved geography — from CoSyNe's own
 program books (per-abstract structure recoverable 2014–2026). Aggregate tables and the
-figure-generation code are open; raw abstract text is not redistributed. Caveats: keyword
-magnitudes are indices (see method note); CNS country counts are host-city-sensitive; the
-CoSyNe institution→country map covers 97% of abstracts, with the unresolved tail (bare
-department names) left uncounted rather than guessed.*
+figure-generation code are open; raw abstract text is not redistributed. Interactive
+(Datawrapper) versions of the topic, meeting-size, geography, AI-uptake and keyword-change
+charts are listed in `results/datawrapper/README.md`. Caveats: keyword magnitudes are
+indices (see method note); CNS country counts are host-city-sensitive; the CoSyNe
+institution→country map covers 97% of abstracts, with the unresolved tail (bare department
+names) left uncounted rather than guessed.*
 
 ---
 
