@@ -1,0 +1,38 @@
+{
+  "topics_over_time": {
+    "id": "hZl6p",
+    "url": "https://datawrapper.dwcdn.net/hZl6p/2/",
+    "title": "Data-driven topics over time (CNS)",
+    "type": "d3-lines"
+  },
+  "meeting_sizes": {
+    "id": "HWuVe",
+    "url": "https://datawrapper.dwcdn.net/HWuVe/2/",
+    "title": "CoSyNe is the larger meeting",
+    "type": "d3-lines"
+  },
+  "aiml_uptake": {
+    "id": "nUvV8",
+    "url": "https://datawrapper.dwcdn.net/nUvV8/2/",
+    "title": "The machine-learning wave: CoSyNe vs CNS",
+    "type": "d3-lines"
+  },
+  "countries_over_time": {
+    "id": "vTsUW",
+    "url": "https://datawrapper.dwcdn.net/vTsUW/2/",
+    "title": "Where CNS work comes from",
+    "type": "d3-lines"
+  },
+  "geography": {
+    "id": "xnB4g",
+    "url": "https://datawrapper.dwcdn.net/xnB4g/2/",
+    "title": "CoSyNe leans North-American; CNS leans European",
+    "type": "d3-bars-grouped"
+  },
+  "rising_fading": {
+    "id": "bss8i",
+    "url": "https://datawrapper.dwcdn.net/bss8i/2/",
+    "title": "What rose and what left the room (CNS)",
+    "type": "d3-bars"
+  }
+}

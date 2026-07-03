@@ -17,6 +17,7 @@ committed tables (no raw corpus required).
 | `fig2_rising_fading` | Biggest gains/losses in keyword intensity (2020s vs early-2010s) |
 | `fig3_two_communities` | "Two communities, two vocabularies" — CNS-vs-CoSyNe keyword gap |
 | `fig4_aiml_uptake` | AI/ML adoption over time: CoSyNe adopts harder than CNS |
+| `fig5_topics_over_time` | BERTopic themes over time (top themes; visual cortex ↓, functional connectivity ↑) |
 | `fig5_globalization` | Distinct countries + geographic diversity (entropy), with trend fits |
 | `fig6_geography` | Author affiliations by country over time (top 6; host-city sensitive) |
 | `fig7_titles_lossy` | Title-only vs full-abstract trajectory correlation (titles are lossy) |
@@ -67,8 +68,18 @@ side comes from `scripts/adapt_cosyne.py --abstracts <cosyne-programbook-dir>`. 
 | `keyword_incidence_cosyne.csv` | per-abstract 0/1 keyword flags, CoSyNe 2014–2026 (no text) |
 | `cosyne_countries.csv` | CoSyNe author-affiliation country counts (institution-resolved) |
 | `meeting_sizes.csv` | year × CNS abstracts × CoSyNe accepted abstracts (posters+talks) |
+| `topics_over_time_shares.csv` | year × BERTopic theme × share of that year's abstracts (%) |
+| `topic_catalogue_public.csv` | BERTopic topic id, count, name, keywords (no abstract text) |
 
 `recovered_*.csv` are re-derivable via `python scripts/recover_tables_from_figures.py`
-(see [`../docs/VALIDATION.md`](../docs/VALIDATION.md) §4). Topic catalogue and per-doc
-topic assignments derive from abstract bodies and stay in the gitignored
-`outputs/topics/`; re-run `scripts/run_topics.py` locally to regenerate.
+(see [`../docs/VALIDATION.md`](../docs/VALIDATION.md) §4). The topic aggregates come from
+`scripts/topics_figure.py` (reading `outputs/topics/`, produced by `scripts/run_topics.py`
+with the `.[topics]` extra + the CNS corpus); the full topic catalogue with representative
+docs stays in the gitignored `outputs/topics/` (it contains abstract text).
+
+## Interactive charts (`datawrapper/`)
+
+Datawrapper-ready CSVs + published embeds for the article's key charts (topics, meeting
+sizes, geography, AI uptake, country origins, keyword change). Built by
+`scripts/create_datawrapper_charts.py`. See
+[`datawrapper/README.md`](datawrapper/README.md) for the embed URLs and Substack usage.
