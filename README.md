@@ -95,6 +95,9 @@ tests/             pytest suite (fixture-based, offline)
   networks (C), title-vs-abstract robustness (D), CoSyNe×CNS contrast (E). Run via
   `scripts/run_{keyword_trends,topics,networks,contrast}.py`. Findings in
   [`docs/RESULTS.md`](docs/RESULTS.md).
+- **Run it locally** → [`docs/RUNBOOK.md`](docs/RUNBOOK.md) — one-page workflow to
+  regenerate every figure, run the corpus-dependent analyses (institutions, true
+  co-occurrence), and fold in CoSyNe data from another repo via `scripts/adapt_cosyne.py`.
 - **Plan 3 — publishing** ✅ — editorial figure suite (`scripts/build_article_figures.py`)
   + public write-up ([`docs/ARTICLE.md`](docs/ARTICLE.md)) + methods review
   ([`docs/VALIDATION.md`](docs/VALIDATION.md)). The figure suite regenerates from the
