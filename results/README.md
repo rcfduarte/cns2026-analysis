@@ -23,21 +23,29 @@ committed tables (no raw corpus required).
 | `fig8_keyword_cotrajectory_network` | Keyword co-trajectory graph + communities (terms that rose/fell together) |
 | `fig9_two_vocabularies_map` | CNS-vs-CoSyNe per-keyword intensity, log-log, with community signatures |
 | `fig10_specialization_overlap` | Scale-normalized specialization + vocabulary-overlap metrics |
+| `fig11_top_institutions` | Most active institutions across CNS meetings (abstract counts) |
+| `fig12_institution_network` | Institution co-authorship collaboration network + communities |
+| `fig13_country_shares` | Per-country share of each meeting's abstracts (scale-normalized) |
 | `fig14_cns_origin_regions` | CNS countries/regions of origin — Europe (bloc) vs US over time |
+| `fig15_cns_cosyne_geography` | CNS vs CoSyNe regional composition — CoSyNe leans North-American |
+| `fig16_meeting_sizes` | Accepted abstracts per year — CoSyNe vs CNS (CoSyNe ~1.5× larger) |
+| `fig_cooccurrence_cns` | True per-abstract keyword co-occurrence network (CNS) + communities |
+| `fig_cooccurrence_cosyne` | True per-abstract keyword co-occurrence network (CoSyNe) + communities |
 | `figS1_vocabulary_map` | Supplementary: every keyword × year, row-normalised, sorted by era |
 
-Figures 8–10 are built by `python scripts/keyword_networks.py`; `fig14` by
-`python scripts/geography_comparison.py` (all committed data only). A CNS-vs-CoSyNe
-regional comparison (`fig15`) is coded but needs CoSyNe author-geography
-(`geography_comparison.py --cosyne-countries <csv>`).
-The original Plan-3 figures (`run_all_figures.py`, corpus-dependent) are archived under
-`figures/_source_v1/` for provenance.
+Figures 8–10 are built by `python scripts/keyword_networks.py`; `fig14`+`fig15` by
+`python scripts/geography_comparison.py` (`fig15` needs `--cosyne-countries`, produced by
+`adapt_cosyne.py`). The original Plan-3 figures (`run_all_figures.py`, corpus-dependent)
+are archived under `figures/_source_v1/` for provenance.
 
 **Corpus-dependent figures** (run on a local clone with the raw corpus, then optionally
 `--export` the non-sensitive aggregates back here to regenerate):
-`scripts/affiliation_analysis.py` → top institutions, institution collaboration network,
-scale-normalized country shares; `scripts/keyword_networks.py --incidence <csv>` → true
-per-abstract keyword co-occurrence networks + CNS-vs-CoSyNe community comparison. See
+`scripts/affiliation_analysis.py --export` → `fig11`/`fig12`/`fig13` (top institutions,
+institution collaboration network, scale-normalized country shares) + the aggregate
+tables below; `scripts/keyword_networks.py --incidence <csv> --cosyne-incidence <csv>` →
+`fig_cooccurrence_cns`/`fig_cooccurrence_cosyne` + the CNS-vs-CoSyNe partition Jaccard;
+`scripts/meeting_sizes.py --corpus <parquet> --cosyne-dir <dir>` → `fig16`. The CoSyNe
+side comes from `scripts/adapt_cosyne.py --abstracts <cosyne-programbook-dir>`. See
 [`../docs/ANALYSIS_IDEAS.md`](../docs/ANALYSIS_IDEAS.md).
 
 ## Tables (`tables/`)
@@ -52,6 +60,13 @@ per-abstract keyword co-occurrence networks + CNS-vs-CoSyNe community comparison
 | `recovered_countries_over_time.csv` | year × country × abstracts (top 8; recovered, smoothed) |
 | `recovered_robustness_hist.csv` | title-vs-full trajectory-correlation histogram bins |
 | `cotrajectory_communities.csv` | co-trajectory community membership + CoSyNe/CNS lean per community |
+| `institution_stats.csv` | per-institution abstract counts, modal country, first/last year (CNS) |
+| `institution_edges.csv` | institution co-authorship edges (weight ≥ 2) for `fig12` |
+| `country_year_totals.csv` | year × country × abstracts + per-year totals (CNS, all countries) |
+| `keyword_incidence_cns.csv` | per-abstract 0/1 keyword flags, CNS (no text; for co-occurrence) |
+| `keyword_incidence_cosyne.csv` | per-abstract 0/1 keyword flags, CoSyNe 2014–2026 (no text) |
+| `cosyne_countries.csv` | CoSyNe author-affiliation country counts (institution-resolved) |
+| `meeting_sizes.csv` | year × CNS abstracts × CoSyNe accepted abstracts (posters+talks) |
 
 `recovered_*.csv` are re-derivable via `python scripts/recover_tables_from_figures.py`
 (see [`../docs/VALIDATION.md`](../docs/VALIDATION.md) §4). Topic catalogue and per-doc

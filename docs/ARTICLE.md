@@ -22,9 +22,12 @@ Computational and Systems Neuroscience meeting?*
 The short version: computational neuroscience is having an identity negotiation. Its
 oldest vocabulary — spikes, dendrites, synaptic plasticity — is quietly receding. A
 newer vocabulary — manifolds, dimensionality, deep networks, and, since 2023, large
-language models — is rising fast. But it is *not* becoming CoSyNe. On a shared
-measuring stick, CNS remains the mechanistic, biophysical wing of the field, while
-CoSyNe owns behaviour, cortex, and primates. Two communities, two vocabularies.
+language models — is rising fast. But it is *not* becoming CoSyNe. On three shared
+measuring sticks — vocabulary, concept co-occurrence, and author geography — CNS remains
+the mechanistic, biophysical wing of the field, while CoSyNe owns behaviour, cortex, and
+primates, wires its concepts together differently, and is both the bigger meeting (~1.5×)
+and the more American one (54% US authors, to CNS's European anchor). Two communities, two
+vocabularies.
 
 Here's what the data shows.
 
@@ -173,6 +176,28 @@ vocabulary is more than **twice** as dense in CoSyNe abstracts (~23 per 10k) as 
 abstracts (~10.5 per 10k). This is exactly what you'd expect if CoSyNe sits closer to
 the NeuroAI frontier while CNS keeps one foot planted in biophysics.
 
+**Do the two fields wire concepts together the same way?** Sharing a vocabulary is not
+the same as organising it the same way. Building a true co-occurrence network for each
+meeting — linking two keywords when they appear in the same abstract more often than
+chance (NPMI ≥ 0.2), then letting community detection find the clusters — shows that the
+two fields partition even their *shared* vocabulary quite differently.
+
+![CNS keyword co-occurrence network](../results/figures/fig_cooccurrence_cns.png)
+
+![CoSyNe keyword co-occurrence network](../results/figures/fig_cooccurrence_cosyne.png)
+
+*Two structural differences stand out. CoSyNe's network is markedly **denser** — 48
+connected terms and 86 above-chance links, against CNS's 38 terms and 49 links — so its
+concepts co-occur more promiscuously across topics. And the clusters don't line up: on
+the 36 keywords both fields use, the two partitions share only a **Jaccard of 0.21** of
+their within-cluster keyword pairs. Concretely, CNS keeps a tight biophysical cluster
+(`population`, `spiking`, `encoding/decoding`) apart from its AI-geometry cluster
+(`deep learning`, `manifold`, `dimensionality`, `interpretability`); CoSyNe instead folds
+`population` into a representational-geometry cluster (`manifold`, `latent`, `recurrence`,
+`RNN`) and pairs `deep learning` with learning mechanisms (`backpropagation`, `dendritic`,
+`plasticity`). Same words, different wiring — CNS reasons from mechanism outward, CoSyNe
+from representation outward.*
+
 ---
 
 ## 4. A field that keeps going more global
@@ -212,20 +237,57 @@ to ~63% by 2025 while North America's falls from ~48% to ~28%. (Smaller countrie
 omitted here; adding them would mostly reinforce Europe.) **CNS is, in origin, a
 European-anchored meeting.**
 
-This is the half of the "CoSyNe is US, CNS is EU" hypothesis that the data can settle
-directly — and it comes down on the hypothesis's side for CNS. The other half is harder:
-this project ingested CoSyNe only as *keyword frequencies*, with no author affiliations,
-so a like-for-like CoSyNe country breakdown isn't computable from the data in hand, and
-no published CoSyNe author-geography statistics turned up to cite. What can be said
-structurally is suggestive: CoSyNe's main meeting is held in the United States almost
-every year (with satellite workshops in Europe), whereas CNS deliberately rotates across
-continents — and, as the host-city spikes above show, where a meeting is held strongly
-shapes who attends. Measuring CoSyNe's geography properly would mean parsing its abstract
-books; the comparison figure is coded and waiting for that input (`fig15`).
+Which institutions supply all this work? Parsing every affiliation to an institution
+name, the most active labs are a recognisable mix of European and North-American
+centres:
+
+![The most active institutions](../results/figures/fig11_top_institutions.png)
+
+*Top institutions by abstract count across all CNS meetings. The Bernstein network of
+computational-neuroscience centres, CNRS, University College London, Imperial College
+London, the Jülich Research Centre, RIKEN, and the Max Planck institutes anchor the
+list — a European centre of gravity that matches the country picture.* Linking
+institutions that co-author together traces the field's collaboration backbone
+(`fig12`), a small set of densely connected hubs surrounded by a long tail of
+occasional collaborators.
+
+## 5. CoSyNe is bigger — and more American
+
+Computational neuroscience is most often compared to **CoSyNe**, its sister meeting. The
+comparison is usually made from memory; here it can be made from the data. Two things
+that "everyone knows" about CoSyNe — that it's bigger, and that it's more American — both
+check out.
+
+First, size. Counting accepted abstracts (posters + talks) year by year, CoSyNe is the
+larger meeting and the gap is widening.
+
+![CoSyNe vs CNS meeting size](../results/figures/fig16_meeting_sizes.png)
+
+*Accepted abstracts per year. CoSyNe overtakes CNS in the mid-2010s and runs about
+**1.5× larger** across 2014–2025 (≈418 vs ≈274 abstracts a year), reaching ~720 accepted
+abstracts by 2026. CNS's line is noisier — meeting size genuinely fluctuates, and corpus
+harvest completeness varies by year — but the direction is unambiguous.*
+
+Second, geography — the "CoSyNe is US, CNS is EU" hypothesis. Earlier this could only be
+half-answered, because the project ingested CoSyNe as keyword frequencies with no author
+affiliations. Parsing CoSyNe's program books directly and resolving each abstract's
+institutions to countries closes the gap, and the two communities turn out to mirror each
+other:
+
+![CNS vs CoSyNe geography](../results/figures/fig15_cns_cosyne_geography.png)
+
+*Regional composition of author affiliations, both sides resolved institution-by-
+institution (CNS: full corpus, 2007–2025; CoSyNe: program books, 2014–2026, at 97%
+per-abstract coverage). CoSyNe draws **58% of its author-affiliation countries from North
+America** — the United States alone accounts for **54%** — and just **34% from Europe**.
+CNS is the inverse: **28% North America, 55% Europe**. The US is the single largest
+country at both meetings, but it is a *plurality* at CNS and an outright *majority* at
+CoSyNe.* On origin, CNS is European-anchored and CoSyNe is American-anchored — exactly as
+the folklore holds, now with the receipts.
 
 ---
 
-## 5. A note on method — and why the full abstract matters
+## 6. A note on method — and why the full abstract matters
 
 It would have been far easier to run all of this on abstract **titles** alone; titles
 are trivially available, while full abstract bodies took real work to recover and
@@ -281,9 +343,13 @@ started to answer in its abstracts — and we now have the receipts to watch it 
 *Methods, data, and every figure in this piece are fully reproducible. The corpus spans
 5,394 abstracts across 19 CNS/OCNS meetings (2007–2025); geography is parsed from author
 affiliations at ~90% coverage; keyword frequencies follow the CoSyNe taxonomy for
-comparability. Aggregate tables and the figure-generation code are open; raw abstract
-text is not redistributed. Caveats: keyword magnitudes are indices (see method note);
-country counts are host-city-sensitive; the CoSyNe comparison is keyword-axis only.*
+comparability. The CoSyNe comparison now runs on three shared rulers — keyword intensity,
+per-abstract keyword co-occurrence, and institution-resolved geography — from CoSyNe's own
+program books (per-abstract structure recoverable 2014–2026). Aggregate tables and the
+figure-generation code are open; raw abstract text is not redistributed. Caveats: keyword
+magnitudes are indices (see method note); CNS country counts are host-city-sensitive; the
+CoSyNe institution→country map covers 97% of abstracts, with the unresolved tail (bare
+department names) left uncounted rather than guessed.*
 
 ---
 
