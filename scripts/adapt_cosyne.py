@@ -8,12 +8,20 @@ Emits:
 Both are NON-SENSITIVE aggregates (country counts; per-abstract 0/1 keyword flags —
 no abstract text), so they can be committed and shared.
 
-Input: a parquet or JSONL of CoSyNe abstracts. You point at the columns holding the
-abstract text and the affiliation list; sensible defaults are auto-detected. The
-keyword incidence uses the SAME taxonomy as CNS (cns_scientometrics), so the two
+Input: either
+  * a parquet / JSONL / JSON / CSV of CoSyNe abstracts (point --text-col/--affil-col/
+    --year-col at the right columns; sensible defaults are auto-detected), or
+  * a **directory of CoSyNe program books** (`cosyne_YYYY.txt`, as in the
+    `cosyne-keywords` repo). These are parsed into per-abstract records by
+    `cns_scientometrics.analyze.cosyne_programbook`; affiliations are bare institution
+    names, so country is resolved with the curated institution -> country map there.
+    Per-abstract segmentation works for 2014--2026 (older books are unstructured OCR).
+
+The keyword incidence uses the SAME taxonomy as CNS (cns_scientometrics), so the two
 co-occurrence networks are directly comparable.
 
 Examples:
+  python scripts/adapt_cosyne.py --abstracts ~/repos/cosyne-keywords/data   # program books
   python scripts/adapt_cosyne.py --abstracts /path/cosyne.parquet
   python scripts/adapt_cosyne.py --abstracts /path/cosyne.jsonl \
       --text-col abstract --affil-col affiliations --year-col year
@@ -26,9 +34,13 @@ from pathlib import Path
 
 import pandas as pd
 
+from cns_scientometrics.analyze.cosyne_programbook import (
+    country_of_institution,
+    load_cosyne_dir,
+)
 from cns_scientometrics.analyze.keyword_trends import count_keyword
 from cns_scientometrics.analyze.keywords_taxonomy import KEYWORDS
-from cns_scientometrics.analyze.networks import country_of, record_countries
+from cns_scientometrics.analyze.networks import country_of
 
 ROOT = Path(__file__).resolve().parents[1]
 TB = ROOT / "results" / "tables"
@@ -38,7 +50,27 @@ _AFFIL_CANDIDATES = ["affiliations", "affiliation", "affils", "author_affiliatio
 _YEAR_CANDIDATES = ["year", "meeting_year", "date_year"]
 
 
+def _record_countries(affiliations: list[str]) -> list[str]:
+    """Distinct ISO countries for one abstract.
+
+    Tries the corpus trailing-country parser first (works when the affiliation ends in
+    a country/city, as in structured datasets), then falls back to the CoSyNe
+    institution -> country map (program-book affiliations are bare institution names).
+    """
+    out: list[str] = []
+    for a in affiliations:
+        c = country_of(a) or country_of_institution(a)
+        if c and c not in out:
+            out.append(c)
+    return out
+
+
 def _load(path: Path) -> pd.DataFrame:
+    if path.is_dir():  # a directory of CoSyNe program books (cosyne_YYYY.txt)
+        df = load_cosyne_dir(path)
+        if df.empty:
+            raise SystemExit(f"no cosyne_YYYY.txt program books parsed under {path}")
+        return df
     if path.suffix in (".parquet", ".pq"):
         return pd.read_parquet(path)
     if path.suffix in (".jsonl", ".ndjson"):
@@ -119,7 +151,7 @@ def main():
     if acol:
         counts: dict[str, int] = {}
         for _, r in df.iterrows():
-            for c in record_countries(_as_affils(r[acol])):
+            for c in _record_countries(_as_affils(r[acol])):
                 counts[c] = counts.get(c, 0) + 1
         # map ISO alpha-2 -> readable names used by geography_comparison REGION map
         import pycountry
@@ -137,8 +169,6 @@ def main():
     else:
         print("no affiliation column found -> skipped cosyne_countries.csv "
               "(pass --affil-col if affiliations exist)")
-
-    _ = country_of  # affiliations parsed via record_countries above
 
 
 if __name__ == "__main__":
