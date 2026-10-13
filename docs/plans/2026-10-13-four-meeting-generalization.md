@@ -1,13 +1,15 @@
 # Four-Meeting Generalization Plan (CoSyNe · CNS · Bernstein · CCN)
 
 **Goal:** Extend the CNS×CoSyNe community analysis to the four main computational-neuroscience
-meetings — CoSyNe, CNS*, the Bernstein Conference, and CCN — write the full piece, offer it
-to Emily, and fall back to Substack if it is declined.
+meetings — CoSyNe, CNS*, the Bernstein Conference, and CCN — and produce a complete,
+comprehensive, publication-ready analysis and write-up. The destination (a journal/outlet vs.
+Substack) is deliberately undecided and does not shape the analysis.
 
-**Status:** Planning. Phase 0 (data audit) is blocked on network access, see below.
-Prepared 2026-10-13. Evidence labels: **[confirmed]** = stated by an official/primary page seen
-in search results; **[inferred]** = derived by counting from confirmed facts; **[unverified]** =
-not checked, do not publish without checking.
+**Status:** Planning. Phase 0 (data audit) is blocked on network access, see §5.
+Prepared 2026-10-13, revised after the maintainer's decisions (§6). Evidence labels:
+**[confirmed]** = stated by an official/primary page seen in search results *or* inspected
+locally; **[inferred]** = derived by counting from confirmed facts; **[unverified]** = not
+checked, do not publish without checking.
 
 ---
 
@@ -38,10 +40,19 @@ four; submission counts are patchy.
 
 | Meeting | Abstract text — where | Years | Format / quirks | Submissions & acceptance |
 |---|---|---|---|---|
-| **CNS** | BMC Neurosci. / J. Comput. Neurosci. supplements | 2007–2025 **in repo** (5,394) | 3 publication eras, already parsed. **2026 supplement not yet ingested**; whether it is published is unverified. 2022+ are paywalled → user-supplied PDFs | Not found [unverified] |
-| **CoSyNe** | Program books on cosyne.org | 2004–2025 in the user's other repo; **2026 book new** | Selective, double-blind review. | Not found for 2026; earlier years may be in organiser posts [unverified] |
-| **Bernstein** | G-Node Conference Abstract Server (`abstracts.g-node.org/conference/BCyy`); Frontiers for early years | BC17, BC21–BC26 [confirmed present]; BC13 (older G-Node portal) and Frontiers 2010/2012 (2012: 265 abstracts) [confirmed present]; **BC14–16, BC18–20 [unverified]**; 2005–2009, 2011 unknown | Posters + invited/contributed talks, DOIs per abstract, grouped by session. BC26 page says submissions are closed → 2026 text may only exist after the meeting | **Not found** [unverified] |
-| **CCN** | OpenReview (2-pagers + 8-page proceedings, 2025–2026); per-year sites `YYYY.ccneuro.org` (2022–2024 seen, 2017–2021 archived) | 2017–2026 exist; machine-readable only from ~2025 | **Two tiers:** 2-page "extended abstracts" and (new in 2025) 8-page CCN-P proceedings with DOIs. 2-pagers have no DOI. Format changed across years | **2025: 508 extended-abstract + 103 proceedings submissions** [confirmed]. Proceedings: top ~25% accepted. 2-pagers "generally accepted" up to 800 posters. 2023/24: no stats found [unverified] |
+| **CNS** | 2007–2025: BMC Neurosci. / J. Comput. Neurosci. supplements. **2026: Zenodo record 22639749** ("Proceedings of the 35th CNS*2026", dated 7 Sep 2026; PDF + index CSV; per-item DOIs) | 2007–2025 **in repo** (5,394); 2026 **found, not yet ingested** | 3 publication eras already parsed. The Zenodo record lists **165 items** (abstracts + keynotes) — check it against the PDF. Licence on Zenodo not yet read [unverified]. 2022–25 counts in `meeting_sizes.csv` (147/161 for 2022/24) look low vs other years → re-audit Era C′ parsing | Not found [unverified] |
+| **CoSyNe** | `rcfduarte/cosyne-keywords` → `data/cosyne_YYYY.txt` (pdftotext of program books) | **2004–2026 in hand** (23 books, 0.4–1.9 MB each). Per-abstract records only **2014–2026** | 2014+ books are structured (id, title, authors, e-mail, affiliation footnotes, prose) and already parsed by `analyze/cosyne_programbook.py`. **2004–2013 are unstructured OCR** → keyword-frequency only, no per-abstract/affiliation analyses. Accepted counts 2014–26: 342→716 | Not in repo; not found online [unverified] |
+| **Bernstein** | G-Node Conference Abstract Server (`abstracts.g-node.org/conference/BCyy`); Frontiers for early years | G-Node **BC16, BC17, BC19, BC21–BC26 [confirmed present]**; BC13 on the older portal and Frontiers 2010 + 2012 (265 abstracts) [confirmed present]; **BC14, BC15, BC18, BC20 [unverified]**; **2005–2009 and 2011: no archive found** | Posters + invited/contributed talks, DOIs per abstract, session-grouped. BC26 is listed but submissions only just closed — check whether 2026 abstracts are published | **Not found** [unverified] |
+| **CCN** | **2-page extended abstracts only (scope decision, §6).** OpenReview (2025–2026); per-year sites `YYYY.ccneuro.org` (2022–2024 seen; 2017–2021 archived) | 2017–2026 exist (no 2020 meeting, see §1); machine-readable only from ~2025 | 8-page CCN-P proceedings (new 2025) are **excluded**. 2-pagers have no DOI. Format/hosting changed across years; 2017–2021 hosting is the biggest unknown | **2025: 508 extended-abstract + 103 proceedings submissions** [confirmed]. 2-pagers "generally accepted" up to an 800-poster cap. 2023/24: no stats found [unverified] |
+
+### Comparable windows (what the data can actually support)
+- **Per-abstract analyses** (geography, institutions, co-occurrence, author overlap, embeddings):
+  CoSyNe **2014–2026**; CNS **2007–2026**; CCN **2017–2026** if 2017–2021 are recoverable, else
+  2022–2026; Bernstein **G-Node era (2016–2026)** at minimum, back to 2010 if Frontiers parses.
+  → The **four-way overlap window is 2017–2026** (CCN's lifespan). This is the headline window.
+- **Keyword-frequency trends** (word-level, no segmentation needed): CoSyNe from **2004**,
+  CNS from 2007, plus whatever Bernstein/CCN years exist. Longer series are two-meeting only.
+- Be explicit in the piece about which claims span which years; never splice windows silently.
 
 ### Why "submissions" is a methodological hazard
 The four meetings have **different selection regimes**: CoSyNe is highly selective; CNS and
@@ -77,13 +88,23 @@ that is Phase 0.
 **Phase 0 — Data audit (gate; ~1 session).** Needs network access (see §5).
 - [ ] Probe script: for each meeting × year, record reachable? · record count · fields present
       (title, authors, affiliations, body) · licence. Output a coverage matrix.
+- [ ] **Bernstein early-years hunt (explicit decision, §6):** try, in order, Frontiers
+      (2009/2010/2012 and any other `conf.fncom.YYYY` volumes), the G-Node pages for BC14/15/18/20,
+      Wayback Machine copies of the 2005–2011 programmes/abstract books, and Bernstein Network
+      PDFs. A year counts as "reliable" only if it yields per-abstract title + authors +
+      affiliations + body for a stable majority of the programme. **Fallback:** if nothing
+      reliable exists before the G-Node era, fix the window at the G-Node era and say so.
+- [ ] CCN 2017–2021 recovery: locate each year's 2-page abstract hosting (site PDFs, OpenReview,
+      Wayback) and test parseability; otherwise the CCN window starts at 2022.
 - [ ] Decide per-meeting year windows from the matrix. **Go/no-go:** a meeting enters the main
       analysis only if it has ≥ ~8 usable years with affiliations (needed for geography/networks).
 - [ ] Collect any published submission counts (CCN 2025 already in hand) into `data/submissions.csv`.
 
 **Phase 1 — Ingestion adapters.** `gnode.py` (Bernstein), `frontiers.py` (early Bernstein),
-`openreview.py` (CCN, 2-pager + proceedings), CoSyNe import from the other repo, CNS 2026 PDF via
-the existing `parse_pdf.py`. One test fixture per adapter (offline, as in `tests/fixtures/`).
+`openreview.py` (CCN 2-pagers), `zenodo.py` (CNS 2026: index CSV + per-item records), CoSyNe
+import from the cosyne-keywords program books (reuse `cosyne_programbook.py`; extend it to also
+yield title + author names, which the author-overlap analysis needs). One test fixture per
+adapter (offline, as in `tests/fixtures/`).
 
 **Phase 2 — Harmonise + QA.** Unified corpus parquet; per-meeting QA report in the existing
 `qa_report.md` style; affiliation→country via current `normalize.py`; author-name hygiene.
@@ -99,29 +120,40 @@ the existing `parse_pdf.py`. One test fixture per adapter (offline, as in `tests
 - Topic model on the pooled corpus; topic × meeting heatmap.
 - Optional panel: submissions vs accepted where published.
 
-**Phase 4 — Write.** Single long-form piece; reuse the house figure style
-(`titlebox()`, `source()`, `spread()` in `scripts/build_article_figures.py`). Methods box states
-the selection-regime caveat up front.
+**Phase 4 — Write.** Single complete long-form piece, written to stand on its own (no
+outlet-specific constraints); reuse the house figure style (`titlebox()`, `source()`,
+`spread()` in `scripts/build_article_figures.py`). Methods box states the selection-regime
+caveat and the per-claim year windows up front. Interactive chart versions as for the CNS piece.
 
-**Phase 5 — Outreach.** Send draft to Emily with a short ask: publish, or OK to self-publish.
-Fallback: Substack. (Open question below: who/where is Emily — it affects length and format.)
+**Phase 5 — Finalise.** Validation pass (extend `docs/VALIDATION.md` to the new meetings),
+README/RESULTS updated, everything regenerable from committed aggregates. Choice of venue is
+made after the piece exists.
 
 ## 5. Blockers & next steps for the maintainer
 
 - **Network access.** In the environment settings (cloud environment menu in the session
-  title bar → *Edit*), widen Network access or add under *Allowed domains*:
-  `ccneuro.org` (+ `*.ccneuro.org`), `openreview.net` / `api2.openreview.net`,
-  `abstracts.g-node.org`, `www.frontiersin.org`, `www.cosyne.org`, `www.cnsorg.org`,
-  `bernstein-network.de`, `link.springer.com`. Steps:
-  https://code.claude.com/docs/en/cloud-environments#network-access
+  title bar → *Edit*), either choose a broader access level or add these under *Allowed
+  domains* (leave the *Allow package managers* box ticked):
+  `ccneuro.org` and each `YYYY.ccneuro.org` (2017–2026) if wildcards are not accepted,
+  `openreview.net`, `api2.openreview.net`, `api.openreview.net`,
+  `abstracts.g-node.org`, `portal.g-node.org`, `www.g-node.org`,
+  `www.frontiersin.org`, `zenodo.org`, `doi.org`, `web.archive.org` (needed for the Bernstein
+  early-years hunt), `bernstein-network.de`, `www.bernstein-conference.de`, `www.cnsorg.org`.
+  Steps: https://code.claude.com/docs/en/cloud-environments#network-access
   Alternative: run the Phase 0 probe on a local clone.
-- **CoSyNe data.** Needs the other repo's path/format and a decision on whether 2026 is included
-  (the 2026 program book is not in the existing analysis).
-- **CNS 2026 abstracts.** Supply the JCN supplement PDF if published (same dropbox flow as 2022–25).
+- ~~CoSyNe data~~ — **resolved:** `rcfduarte/cosyne-keywords` is readable and holds 2004–2026.
+- ~~CNS 2026 abstracts~~ — **resolved:** published on Zenodo (record 22639749); ingest once
+  `zenodo.org` is reachable. The JCN-PDF route is no longer needed for 2026.
 
-## 6. Open questions
-1. Who/what is Emily (editor of which outlet)? Length, tone, and figure format depend on it.
-2. Should CCN's 8-page proceedings be in scope, or only 2-page abstracts for like-for-like?
-3. Headline framing: "four meetings, one field" (overlap/bridges) vs "the field's centre of
-   gravity" (AI/ML shift across meetings)?
-4. Do we want pre-2013 Bernstein, where data is thinnest, or start at the G-Node era?
+## 6. Decisions (maintainer, 2026-10-13) and remaining questions
+**Decided**
+1. No target outlet is assumed; build the most complete and comprehensive analysis possible.
+2. **CCN = 2-page extended abstracts only**, for comparability. 8-page proceedings excluded.
+3. **Bernstein: chase the early years** (Phase 0 hunt). If none is reliable, fix the G-Node era.
+4. CoSyNe data source = `rcfduarte/cosyne-keywords`; CNS 2026 = Zenodo.
+
+**Still open**
+- Headline framing: "four meetings, one field" (overlap/bridges) vs "the field's centre of
+  gravity" (AI/ML shift across meetings) — decide after Phase 3 shows which result is stronger.
+- Whether the CNS 2022–25 counts (147/161 in 2022/24) are real or a parsing shortfall — settled
+  in Phase 2 by comparing against the official indices.
