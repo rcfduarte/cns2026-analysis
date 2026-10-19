@@ -26,7 +26,10 @@ from pathlib import Path
 
 import pandas as pd
 
-_ID_HDR = re.compile(r"^((?:\d+-\d{2,3})|(?:T-\d+)|(?:I-\d+))\.\s")
+# Poster sessions are Roman (I-, II-, III-, ...) before 2021 and Arabic ("1-001") after; talks
+# are "T-n". Every Roman session must start a block, otherwise sessions II/III are swallowed
+# into the block before them (pre-fix, only ~28% of 2014-2020 abstracts were recovered).
+_ID_HDR = re.compile(r"^((?:\d+-\d{2,3})|(?:T-\d+)|(?:(?:I{1,3}|IV|VI{0,3}|V)-\d+))\.\s")
 _EMAIL = re.compile(r"@")
 _PAGEMARK = re.compile(
     r"^(COSYNE\s+\d{4}|Program Summary|Poster Session|Session \d+|"
@@ -34,11 +37,46 @@ _PAGEMARK = re.compile(
     re.I,
 )
 _PROSE_MIN = 120  # chars — a real abstract paragraph line is at least this long
+_PROSE_WRAPPED_MIN = 80  # chars — narrower-wrapped abstracts (e.g. invited talks) ...
+_PROSE_WRAPPED_LINES = 3  # ... need at least this many such lines
+# Author-index line, e.g. "Zoccolan D., 89, 150" (surname, initials, page numbers).
+_INDEX_LINE = re.compile(r"^[^\W\d_][^\d,]{0,40}?\s[A-Z](?:\.[A-Z])*\.,\s*\d+(?:,\s*\d+)*\s*$")
+_INDEX_RUN = 5  # this many consecutive index lines mark the start of the author index
 
 
 def _blocks(lines: list[str]) -> list[list[str]]:
     idx = [i for i, ln in enumerate(lines) if _ID_HDR.match(ln.strip())]
     return [lines[a:b] for a, b in zip(idx, [*idx[1:], len(lines)], strict=False)]
+
+
+def _has_prose(blk: list[str]) -> bool:
+    """A real abstract paragraph: one long line, or several moderately long wrapped lines."""
+    lens = [len(ln.strip()) for ln in blk]
+    return any(n >= _PROSE_MIN for n in lens) or (
+        sum(n >= _PROSE_WRAPPED_MIN for n in lens) >= _PROSE_WRAPPED_LINES
+    )
+
+
+def _trim_author_index(blk: list[str]) -> list[str]:
+    """Cut a block where the alphabetical author index begins.
+
+    The last abstract of a book has no following id, so it would otherwise absorb the
+    whole author index (1,000+ lines of ``Surname I., page`` entries).
+    """
+    run, start = 0, 0
+    for i, ln in enumerate(blk):
+        s = ln.strip()
+        if not s or _PAGEMARK.match(s):
+            continue
+        if _INDEX_LINE.match(s):
+            if run == 0:
+                start = i
+            run += 1
+            if run >= _INDEX_RUN:
+                return blk[:start]
+        else:
+            run = 0
+    return blk
 
 
 def _affils(blk: list[str]) -> list[str]:
@@ -70,9 +108,8 @@ def parse_programbook(path: Path) -> list[dict]:
     lines = Path(path).read_text(encoding="utf-8", errors="ignore").splitlines()
     recs = []
     for blk in _blocks(lines):
-        has_email = any(_EMAIL.search(ln) for ln in blk)
-        has_prose = any(len(ln.strip()) >= _PROSE_MIN for ln in blk)
-        if has_email and has_prose:
+        blk = _trim_author_index(blk)
+        if any(_EMAIL.search(ln) for ln in blk) and _has_prose(blk):
             recs.append({"text": "\n".join(blk), "affiliations": _affils(blk)})
     return recs
 

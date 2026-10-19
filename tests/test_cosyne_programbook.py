@@ -93,3 +93,91 @@ def test_accepted_counts_counts_ids(tmp_path):
     assert row["posters"] == 2  # 1-001, 1-002
     assert row["talks"] == 1  # T-13
     assert row["accepted"] == 3
+
+
+# A pre-2021 book: poster ids run through Roman sessions I/II/III, one talk abstract is
+# wrapped at ~100 chars (below the 120-char "long line" cue used for poster prose), and an
+# alphabetical author index follows the last abstract.
+_PROSE = (
+    "We record from populations of neurons while animals perform the task and we then fit "
+    "a latent dynamical model to the resulting spike trains to characterise the geometry."
+)
+_NARROW = "\n".join(
+    [
+        "Neural populations encode many task variables at once, and this talk shows how a",
+        "single recurrent circuit can multiplex them without interference between them, by",
+        "relying on low-dimensional subspaces that are rotated across successive epochs of",
+        "the behaviour, which we establish with recordings and with a matched network model.",
+    ]
+)
+_BOOK_2016 = f"""I-1. Session one poster
+Ann One
+
+ANN @ MIT . EDU
+
+Massachusetts Institute of Technology
+{_PROSE}
+
+II-1. Session two poster
+Bo Two
+
+BO @ UCL . AC . UK
+
+University College London
+{_PROSE}
+
+III-12. Session three poster
+Cy Three
+
+CY @ EPFL . CH
+
+EPFL
+{_PROSE}
+
+T-2. A narrow-wrapped invited talk
+Di Four
+
+DI @ GOOGLE . COM
+
+Google
+{_NARROW}
+
+COSYNE 2016
+
+Author Index
+Ambrose A., 12, 40
+Baker B., 18
+Chen C., 22, 90
+Dube D., 31
+Evans E., 44, 101
+Fox F., 57
+"""
+
+
+def test_roman_session_ii_iii_ids_start_their_own_records(tmp_path):
+    f = tmp_path / "cosyne_2016.txt"
+    f.write_text(_BOOK_2016)
+    recs = parse_programbook(f)
+    # I-1, II-1, III-12 and the talk are four distinct records (not merged into one block)
+    assert len(recs) == 4
+    firsts = [r["text"].splitlines()[0] for r in recs]
+    assert firsts[1].startswith("II-1.")
+    assert firsts[2].startswith("III-12.")
+    assert record_countries_by_institution(recs[1]["affiliations"]) == ["GB"]
+    assert record_countries_by_institution(recs[2]["affiliations"]) == ["CH"]
+
+
+def test_narrow_wrapped_abstract_is_kept(tmp_path):
+    f = tmp_path / "cosyne_2016.txt"
+    f.write_text(_BOOK_2016)
+    recs = parse_programbook(f)
+    talk = [r for r in recs if r["text"].startswith("T-2.")]
+    assert len(talk) == 1  # every prose line < 120 chars, but 4 lines >= 80
+
+
+def test_author_index_is_not_absorbed_into_last_record(tmp_path):
+    f = tmp_path / "cosyne_2016.txt"
+    f.write_text(_BOOK_2016)
+    last = parse_programbook(f)[-1]["text"]
+    assert "Ambrose A." not in last
+    assert "multiplex" in last  # the abstract itself is intact
