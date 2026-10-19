@@ -5,7 +5,9 @@ meetings — CoSyNe, CNS*, the Bernstein Conference, and CCN — and produce a c
 comprehensive, publication-ready analysis and write-up. The destination (a journal/outlet vs.
 Substack) is deliberately undecided and does not shape the analysis.
 
-**Status:** Planning. Phase 0 (data audit) is blocked on network access, see §5.
+**Status:** Phase 0 (data audit) is **partly done**: CoSyNe audited on real data (and a parser
+defect fixed); CCN, Bernstein and CNS\*2026 still blocked on network access (§5). Findings:
+[`../notes/data-audit-2026-10-19.md`](../notes/data-audit-2026-10-19.md).
 Prepared 2026-10-13, revised after the maintainer's decisions (§6). Evidence labels:
 **[confirmed]** = stated by an official/primary page seen in search results *or* inspected
 locally; **[inferred]** = derived by counting from confirmed facts; **[unverified]** = not
@@ -40,8 +42,8 @@ four; submission counts are patchy.
 
 | Meeting | Abstract text — where | Years | Format / quirks | Submissions & acceptance |
 |---|---|---|---|---|
-| **CNS** | 2007–2025: BMC Neurosci. / J. Comput. Neurosci. supplements. **2026: Zenodo record 22639749** ("Proceedings of the 35th CNS*2026", dated 7 Sep 2026; PDF + index CSV; per-item DOIs) | 2007–2025 **in repo** (5,394); 2026 **found, not yet ingested** | 3 publication eras already parsed. The Zenodo record lists **165 items** (abstracts + keynotes) — check it against the PDF. Licence on Zenodo not yet read [unverified]. 2022–25 counts in `meeting_sizes.csv` (147/161 for 2022/24) look low vs other years → re-audit Era C′ parsing | Not found [unverified] |
-| **CoSyNe** | `rcfduarte/cosyne-keywords` → `data/cosyne_YYYY.txt` (pdftotext of program books) | **2004–2026 in hand** (23 books, 0.4–1.9 MB each). Per-abstract records only **2014–2026** | 2014+ books are structured (id, title, authors, e-mail, affiliation footnotes, prose) and already parsed by `analyze/cosyne_programbook.py`. **2004–2013 are unstructured OCR** → keyword-frequency only, no per-abstract/affiliation analyses. Accepted counts 2014–26: 342→716 | Not in repo; not found online [unverified] |
+| **CNS** | 2007–2025: BMC Neurosci. / J. Comput. Neurosci. supplements. **2026: Zenodo record 22639749** ("Proceedings of the 35th CNS*2026", dated 7 Sep 2026; PDF + index CSV; per-item DOIs) | 2007–2025 **in repo** (5,394); 2026 **found, not yet ingested** | 3 publication eras already parsed. The Zenodo record lists **165 items** (abstracts + keynotes) — check it against the PDF. Licence on Zenodo not yet read [unverified]. 2022–25 counts in `meeting_sizes.csv` (147/161 for 2022/24) are documented in `CORPUS.md` and are in the same range as CNS\*2026's 165 — probably genuine (smaller hybrid meetings), verify against the official indices | Not found [unverified] |
+| **CoSyNe** | `rcfduarte/cosyne-keywords` → `data/cosyne_YYYY.txt` (pdftotext of program books) | **2004–2026 in hand** (23 books, 0.4–1.9 MB each). Per-abstract records only **2014–2026** | 2014+ books are structured (id, title, authors, e-mail, affiliation footnotes, prose) and parsed by `analyze/cosyne_programbook.py` — **audited 2026-10-19: after a parser fix, 96–100% of accepted ids are recovered** (it was 26–31% for 2014–20; see audit note). **2004–2013 are unstructured OCR** → keyword-frequency only, no per-abstract/affiliation analyses. Accepted counts 2014–26: 342→716 | Not in repo; not found online [unverified] |
 | **Bernstein** | G-Node Conference Abstract Server (`abstracts.g-node.org/conference/BCyy`); Frontiers for early years | G-Node **BC16, BC17, BC19, BC21–BC26 [confirmed present]**; BC13 on the older portal and Frontiers 2010 + 2012 (265 abstracts) [confirmed present]; **BC14, BC15, BC18, BC20 [unverified]**; **2005–2009 and 2011: no archive found** | Posters + invited/contributed talks, DOIs per abstract, session-grouped. BC26 is listed but submissions only just closed — check whether 2026 abstracts are published | **Not found** [unverified] |
 | **CCN** | **2-page extended abstracts only (scope decision, §6).** OpenReview (2025–2026); per-year sites `YYYY.ccneuro.org` (2022–2024 seen; 2017–2021 archived) | 2017–2026 exist (no 2020 meeting, see §1); machine-readable only from ~2025 | 8-page CCN-P proceedings (new 2025) are **excluded**. 2-pagers have no DOI. Format/hosting changed across years; 2017–2021 hosting is the biggest unknown | **2025: 508 extended-abstract + 103 proceedings submissions** [confirmed]. 2-pagers "generally accepted" up to an 800-poster cap. 2023/24: no stats found [unverified] |
 
@@ -155,5 +157,5 @@ made after the piece exists.
 **Still open**
 - Headline framing: "four meetings, one field" (overlap/bridges) vs "the field's centre of
   gravity" (AI/ML shift across meetings) — decide after Phase 3 shows which result is stronger.
-- Whether the CNS 2022–25 counts (147/161 in 2022/24) are real or a parsing shortfall — settled
+- Whether the CNS 2022/24 counts (147/161) are real — settled
   in Phase 2 by comparing against the official indices.
