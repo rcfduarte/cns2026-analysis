@@ -8,6 +8,7 @@ unstructured OCR (2004--2013) have no ids and show 0 records by design.
 Usage:
   python scripts/audit_cosyne_coverage.py ~/repos/cosyne-keywords/data [--out audit.csv]
 """
+
 from __future__ import annotations
 
 import argparse
@@ -41,7 +42,9 @@ def audit(data_dir: Path) -> pd.DataFrame:
                 if n
                 else None,
                 "with_country_pct": round(
-                    100 * sum(bool(record_countries_by_institution(r["affiliations"])) for r in recs) / n,
+                    100
+                    * sum(bool(record_countries_by_institution(r["affiliations"])) for r in recs)
+                    / n,
                     1,
                 )
                 if n
